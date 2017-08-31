@@ -1,0 +1,108 @@
+.variety{
+	margin-top: 20px;
+	transform: none;
+	@include transition();
+	transition-delay: 0.5s;
+	&_hidden{
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(100%);
+	}
+	&__title{
+		
+	}
+	&__item{
+		position: relative;
+		@include size(100%,150px);
+		border-radius: 100%;
+		overflow: hidden;
+		cursor: pointer;
+		&-wrap{
+			width: 150px;
+		}
+		&-title{
+			position: absolute;
+			left: 0;
+			bottom: 30px;
+			width: 100%;
+			text-align: center;
+			font-size: 16px;
+			font-weight: bold;
+		}
+		&_light{
+			background-color: #fff;
+		}
+		&_dark{
+			background-color: #000;
+		}
+		&_dark &-title{
+			color: #fff;
+		}
+		&:before{
+			@include pseudo();
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 100%;
+			background-color: palette('accent');
+			transform: translateY(100%);
+			opacity: 0;
+			visibility: hidden;
+			@include transition();
+		}
+		&:hover{
+			&:before{
+				transform: none;
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	&__icon{
+		position: absolute;
+		left: 50%;
+		top: 30px;
+		transform: translateX(-50%);
+		width: 60px;
+	}
+	@at-root{
+		%variety-text{
+			display: block;
+			width: 100%;
+			text-align: center;
+			font-weight: bold;
+		}
+	}
+	&__warning{
+		margin-top: 10px;
+		font-size: 12px;
+		@extend %variety-text;
+		&_dark{
+			color: #000;
+		}
+		&_light{
+			color: palette('text');
+		}
+	}
+
+	&__title{
+		margin-bottom: 30px;
+		color: palette('accent-secondary');
+		font-size: 18px;
+		@extend %variety-text;
+	}
+	
+
+	@include resp-min(sm){
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		&__item-wrap{
+			&:not(:last-child){
+				margin-right: 45px;	
+			}
+		}
+	}
+}

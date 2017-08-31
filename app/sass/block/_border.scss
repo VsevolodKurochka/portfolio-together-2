@@ -1,0 +1,48 @@
+.border{
+	&__item{
+		position: fixed;
+		background-color: palette('accent');
+		z-index: z('border');
+		@include transition();
+		&_top,
+		&_bottom{
+			left: 0;
+			width: 100%;
+			height: 10px;
+		}
+		&_left,
+		&_right{
+			top: 0;
+			width: 10px;
+			height: 100%;
+		}
+		&_top{
+			top: 0;
+		}
+		&_bottom{
+			bottom: 0;
+		}
+		&_left{
+			left: 0;
+		}
+		&_right{
+			right: 0;
+		}
+		@include resp-min(sm){
+			&_top,
+			&_bottom{
+				height: 15px;
+			}
+			&_left,
+			&_right{
+				width: 15px;
+			}
+		}
+		@include theme('light'){
+			background-color: setColor('white');
+		}
+		@include theme('dark'){
+			background-color: setColor('dark', 'black');
+		}
+	}
+}

@@ -1,0 +1,94 @@
+/// Settings grid.
+$grid-system: (
+	menuExists 						: true,
+	columns 							: 12,
+	flex 									: true,
+	columnName 						: "vak",
+	width 								: 100%,
+	gutter 								: 15px
+);
+
+/// Media-queries.
+$breakpoints: (
+	lg        : 1200px,
+	md        : 1025px,
+	sm        : 768px,
+	xs        : 480px,
+	exs       : 320px
+);
+
+/// Containers width.
+$containers: (
+	sm					: 750px,
+	md					: 970px,
+	lg 					: 1170px
+);
+
+/// All colors
+$colors: (
+	'brand-1': (
+		'base'	: $color-brand-1,
+		'light' : lighten($color-brand-1, 15%)
+	),
+	'menu': (
+		'base'  : $color-responsive-menu,
+		'light' : lighten($color-responsive-menu, 5%)
+	),
+	'dark': (
+		'base' 	: #333,
+		'black' : #000,
+		'light' : #f3f3f3
+	),
+	'white': (
+		'base'  : #fff
+	)
+);
+
+$scheme-light: (
+	'primary' 						: #0EBB9F,
+	'accent' 							: #F5C700,
+	'accent-secondary' 		: #F69C00,
+	'secondary'						: #EF4836,
+	'secondary-secondary' : #7D1424,
+	'text'								: #D1D5D8
+);
+
+$scheme-dark: (
+	'primary' 						: #005057,
+	'accent' 							: #E36937,
+	'accent-secondary' 		: #BBA900,
+	'secondary'						: #E91818,
+	'secondary-secondary' : #E74C3C,
+	'text'								: #776F70
+);
+
+
+/// Sizes for elements.
+$sizes: (
+	'vtitle-big': (
+		xs:   30px,
+		sm:   120px,
+	),
+	'vtitle': (
+		sm: 	100px,
+		md:   120px,
+		lg:   140px
+	),
+	'vtitle-small': (
+		sm:   30px
+	)
+);
+
+
+/// Z-indexes.
+$z-indexes: (
+	'loader__spin'  	: 1001,
+	'loader'        	: 1000,
+	'modal'						: 1000,
+	'modal__overlay' 	: 999,
+	'movie'						: 11,
+	'border'					: 5,
+	'fixed'						: 10,
+	'default'     		: 1,
+	'below'       		: -1
+);

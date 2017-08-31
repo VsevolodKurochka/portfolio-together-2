@@ -1,0 +1,135 @@
+%vtitle-default{
+	line-height: 1.2;
+}
+.vtitle{
+	text-transform: uppercase;
+	font-size: 45px;
+	font-weight: bold;
+	@include fs('vtitle');
+	@extend %vtitle-default;
+	&_flex{
+		display: flex;
+		flex-flow: row wrap;
+		&-around{
+			justify-content: space-around;
+		}
+	}
+	&_animation{
+		// border-bottom-width: 10px;
+		// border-bottom-style: solid;
+		// @include theme('light'){
+		// 	border-bottom-color: palette();
+		// }
+		span{
+			line-height: 1;
+			display: inline-block;
+			> span{
+				transform: none;
+				animation: titleLetterMove 7s linear 0s infinite;
+			}
+		}
+		@at-root{
+			@keyframes titleLetterMove {
+				50%{
+					transform: translate(15px, -15px);
+				}
+			}
+		}
+		@for $i from 2 through 10{
+			> span:nth-child(#{$i}){
+				transform: translate3d(0, ((random(20) - 10)* $i + px) , 0);
+				span{
+					animation-delay: ($i / 1.5) + s;
+				}
+			}
+		}
+	}
+	&-small{
+		font-size: 20px;
+		@include fs('vtitle-small');
+		@extend %vtitle-default;
+	}
+	&-big{
+		line-height: 1;
+		font-size: 30px;
+		@include fs('vtitle-big');
+		@extend .black !optional;
+		//@extend %vtitle-default;
+		&__line{
+			display: block;
+			&_2{
+				padding-left: 50px;
+			}
+		}
+		&__first-letter{
+			font-size: 140%;
+			display: inline-block;
+		}
+		@include resp-min(sm){
+			&__line{
+				&_2{
+					padding-left: 100px;
+				}
+			}
+		}
+	}
+}
+.text-gradient{
+	&_primary{
+		> span:first-child,
+		> span:last-child{
+			span{
+				position: relative;
+				color: transparent;
+				-webkit-background-clip: text;
+				background-clip: text;
+				//background-image: linear-gradient(to right, #009CF3, #16D6D9);
+				@include theme('light'){
+					background-image: linear-gradient(to right, palette('primary'), lighten( palette('primary'), 25% ) );
+				}
+			}
+		}
+	}
+}
+.text{
+	&-uppercase{
+		text-transform: uppercase;
+	}
+	&-u{
+		text-decoration: underline;
+	}
+	&-dn{
+		text-decoration: none;
+	}
+	&-center{
+	 text-align: center;
+	}
+	&-left{
+	 text-align: left;
+	}
+	&-right{
+	 text-align: right;
+	}
+}
+.offset{
+	&-static{
+		&-xs{
+			margin-bottom: 15px;
+		}
+		&-sm{
+			margin-bottom: 30px;
+		}
+		&-md{
+			margin-bottom: 45px;
+		}
+	}
+	&-big,
+	&-extra{
+		margin-bottom: 60px;
+	}
+	@include resp-min(sm){
+		&-extra{
+			margin-bottom: 90px;
+		}
+	}
+}

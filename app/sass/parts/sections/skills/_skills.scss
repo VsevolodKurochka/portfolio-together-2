@@ -1,0 +1,8 @@
+.our-skills{
+	padding-top: 75px;
+	padding-bottom: 75px;
+	@include resp-min(sm){
+		padding-top: 150px;
+		padding-bottom: 150px;
+	}
+}

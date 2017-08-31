@@ -1,0 +1,32 @@
+.movie{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #ab2020;
+	z-index: z('movie');
+	@include transition();
+	transform-origin: center center;
+	&_hidden{
+		transform: scale(0);
+	}
+	&__text{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%,-50%);
+
+	}
+	&__title{
+		color: palette('accent');
+		font-weight: bold;
+		font-size: 3em;
+		text-align: center;
+	}
+	@include resp-min(sm){
+		&__text{
+			width: 700px;
+		}
+	}
+}

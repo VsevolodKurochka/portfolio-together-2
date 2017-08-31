@@ -1,0 +1,24 @@
+// .skew{
+// 	position: relative;
+// 	z-index: 1;
+	
+// 	overflow: hidden;
+// 	&__inner{
+// 		padding-top: 100px;
+// 		padding-bottom: 100px;
+// 		width: 100%;
+// 		height: 100%;
+// 		transform: skewY($skew-value);
+// 		background-color: palette('secondary', $scheme-dark);
+// 	}
+// 	&__container{
+// 		transform: skewY(-$skew-value);
+// 	}
+// 	&_secondary{
+// 		@include theme('light'){
+// 			&:before{
+// 				background-color: palette('secondary', $scheme-dark);
+// 			}
+// 		}
+// 	}
+// }

@@ -1,0 +1,26 @@
+// @font-face {
+//   font-family: 'HKNova-MediumR';
+//   src: url('../fonts/HKNovaR-Medium/WEB/HKNova-MediumR.eot');
+//   src: url('../fonts/HKNovaR-Medium/WEB/HKNova-MediumR.woff2') format('woff2'),
+//        url('../fonts/HKNovaR-Medium/WEB/HKNova-MediumR.woff') format('woff'),
+//        url('../fonts/HKNovaR-Medium/TTF/HKNova-MediumR.ttf')  format('truetype'),
+// }
+// @include connect-font(ProximaRegular,regular);
+// @include connect-font(ProximaLight,light);
+// @include connect-font(ProximaBold,bold);
+// @include connect-font(ProximaBlack,black);
+.general-font{
+	font-family: 'Titillium Web', sans-serif;
+}
+$font-weights: (
+	'regular' : 400,
+	'light'   : 300,
+	'bold'    : 700,
+	'black'   : 900
+);
+
+@each $name, $weight in $font-weights{
+	.#{$name}{
+		font-weight: $weight;
+	}
+}

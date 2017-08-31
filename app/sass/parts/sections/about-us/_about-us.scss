@@ -1,0 +1,181 @@
+.about-us{
+	position: relative;
+	background-color: #fff;
+	z-index: z('default');
+	&__title{
+		//margin-top: -170px;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		z-index: z('default');
+	}
+	&__container{
+		min-height: 0;
+	}
+	
+	// &__item{
+	// 	display: inline-block;
+	// 	width: 270px;
+	// }
+	
+	&__image{
+		position: relative;
+		left: -25px;
+		top: 25px;
+		transform: rotate(45deg);
+
+		&-wrap{
+			text-align: center;
+			height: 215px;
+		}
+		&-inner{
+			position: relative;
+			display: inline-block;
+			width: 160px;
+			height: 160px;
+			overflow: hidden;
+			transform: rotate(-45deg);
+			transform-origin: center center;
+		}
+	}
+	&__name,
+	&__description{
+		text-align: center;
+	}
+	&__name{
+		position: relative;
+		font-size: 25px;
+		font-weight: 700;
+		padding-bottom: 15px;
+		margin-bottom: 15px;
+		&:before{
+			@include pseudo();
+			left: 50%;
+			bottom: 0;
+			width: 60px;
+			height: 3px;
+			margin-left: -30px;
+			background-color: #000;
+		}
+	}
+	&__greetings{
+		&:first-letter{
+			font-size: 200%;
+			color: #000;
+		}
+	}
+	&__description{
+		margin-bottom: 15px;
+		font-size: 20px;
+		font-weight: 100;
+		
+	}
+	&__text{
+		position: relative;
+		padding-left: 15px;
+		padding-right: 15px;
+		font-size: 16px;
+		color: #666;
+		text-align: left;
+		overflow: hidden;
+	}
+	&__list{
+		list-style: none;
+		li:not(:last-child){
+			margin-bottom: 30px;
+		}
+	}
+	&__part{
+		position: relative;
+		padding-top: 45px;
+		padding-bottom: 45px;
+		&_man{
+			background-color: #fff;
+		}
+		&_girl{
+			background-color: palette('accent');
+		}
+	}
+	&__part_man &{
+		&__description{
+			color: #34d8be;
+		}
+		&__image{
+			&-inner{
+				&:after{
+					left: 34px;
+					top: 65px;
+				}
+				//background-color: #fff;
+			}
+		}
+	}
+
+	&__part_girl &{
+		&__description{
+			color: #fff;
+		}
+		&__image{
+			&-inner{
+				&:after{
+					left: 21px;
+					top: 77px;
+				}
+				//background-color: palette('accent');
+			}
+		}
+	}
+	@include resp-max(sm){
+		&__item{
+			margin-bottom: 30px;
+		}
+	}
+	@include resp-min(sm){
+		&__title{
+			top: -75px;
+		}
+		&__part{
+			padding-top: 75px;
+			padding-bottom: 75px;
+			&_man{
+				text-align: right;
+			}
+			&_girl{
+				text-align: left;
+			}
+		}
+	}
+	@include resp-min(md){
+		&__list{
+			position: absolute;
+			top: 0;
+			width: 80%;
+			height: 100%;
+			&-layer:nth-child(even){
+				text-align: right;
+				color: #000;
+			}
+			@for $i from 1 through 5 {
+				&-layer:nth-child(#{$i}){
+					top: (($i * 70)) + px !important;
+				}
+			}
+		}
+		&__part_man &{
+			&__list{
+				left: 45px;
+			}
+		}
+		&__part_girl &{
+			&__list{
+
+				right: 45px;
+			}
+		}
+		&__text{
+			height: 400px;
+		}
+	}
+	
+}
