@@ -1,0 +1,10 @@
+.color{
+	&-white{
+		color: setColor('white');
+	}
+  &-brand{
+    &-1{
+      color: setColor('brand-1');
+    }
+  }
+}

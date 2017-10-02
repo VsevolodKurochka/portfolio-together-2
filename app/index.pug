@@ -7,59 +7,85 @@ block content
 		+e.element._1
 		+e.element._2
 		+e.element._3
-		+e.particles#particles-js
+		//+e.particles#particles-js
 		.vcontainer
-			+e.SVG.text.offset-static-sm
-				symbol(id="s-text")
-					text(text-anchor="middle" x="50%" y="25%" class="text--line") Kitchen
-					text(text-anchor="middle" x="50%" y="60%" class="text--line") Of
-					text(text-anchor="middle" x="50%" y="90%" class="text--line") Design
-				g.g-ants
-					use(xlink:href="#s-text" class="text-copy")
-					use(xlink:href="#s-text" class="text-copy")
-					use(xlink:href="#s-text" class="text-copy")
-					use(xlink:href="#s-text" class="text-copy")
-					use(xlink:href="#s-text" class="text-copy")
-			+e.H1.description.vtitle-small.text-center.light Creativity &amp; professionalism
+			.vrow.min-sm-y-center
+				.vak-12.vak-md-6
+					+e.company-name#company-name
+					+e.H2.description.vtitle-small.light Creativity &amp; professionalism
+				.vak-12.vak-md-6
+					+b.code
+						+e.header
+							+e.P.title Don't be shy
+							+e.P.description (you can change everything)
+						+e.nav
+							+e.nav-act-wrap
+								+e.nav-act._close
+								+e.nav-act._expand
+								+e.nav-act._turn
+							+e.H1.nav-title Kitchen Of Design.js
+						+e.content#code
+					script.
+						if(document.body.clientWidth >= 1025) {
+							var styleTag = document.createElement("STYLE"),
+									flask = new CodeFlask;
+
+							document.querySelector('head').appendChild(styleTag);
+
+							flask.run('#code', {
+									language: 'css',
+									lineNumbers: false
+							});
+
+							flask.onUpdate(function(code) {
+									styleTag.innerHTML = code;
+							});
+
+							flask.update(
+								"// Feel free to play with the code. :)\n" +  
+								".code__title {\n color: white;\n text-align: center;\n text-transform: uppercase;\n}\n" +
+								".text-copy:nth-child(1) {\n stroke: #F5C700;\n stroke-dashoffset: 10%;\n}\n" + 
+								".text-copy:nth-child(2) {\n stroke: #D61C59;\n stroke-dashoffset: 20%;\n}\n"
+								);
+						}
 	+b.SECTION.about-us
 		+e.container.vcontainer
 			h3.about-us__title.vtitle.vtitle_animation.vtitle_flex.vtitle_flex-around.js-split.text-gradient.text-gradient_primary About
-		//.flex
 		+e.part._man
-			+e.item
-				+e.image-wrap
-					+e.image-inner
-						+e.image(src="img/man.png")
-				+e.body
-					+e.P.name Vsevolod Kurochka
-					+e.P.description Web-developer
-			+e.text
-				+e.UL.list.scene
-					+e.LI.list-layer.layer(data-depth="0.4") 
-						+e.P.greetings.vtitle-small.text-uppercase Greetings!
-					+e.LI.list-layer.layer(data-depth="0.9") 
-						p I am a web developer with 5 years full time experience. I've got a passion for front end web development, and the back end know-how to support that.
-					+e.LI.list-layer.layer(data-depth="0.7") 
-						p I love to use cutting edge technology and the latest web standards to craft lean, mean and clean code that runs like greased lightning..
+			+e.part-container.vcontainer
+				+e.row.vrow
+					.vak-12.vak-sm-6.text-center
+						+e.header
+							+e.window._man
+							+e.P.name Vsevolod Kurochka
+							+e.P.description Web-developer
+					.vak-12.vak-sm-6
+						+e.body
+							+e.P.aim 
+								|I am proud of every 
+								span.regular.color-white project, 
+								|that touched my hands.
+							+e.aim-sequel
+								.js-split-word Only by investing effort and soul will you get a quality product.
 		+e.part._girl
-			+e.item
-				+e.image-wrap
-					+e.image-inner
-						+e.image(src="img/girl.png")
-				+e.body
-					+e.P.name Alina Yaremachenko
-					+e.P.description Web-designer
-			+e.text
-				+e.UL.list.scene
-					+e.LI.list-layer.layer(data-depth="0.9") 
-						+e.P.greetings.vtitle-small.text-uppercase Hello!
-					+e.LI.list-layer.layer(data-depth="0.5") 
-						p I am a web developer with 5 years full time experience. I've got a passion for front end web development, and the back end know-how to support that.
-					+e.LI.list-layer.layer(data-depth="0.2") 
-						p I love to use cutting edge technology and the latest web standards to craft lean, mean and clean code that runs like greased lightning.
+			+e.part-container.vcontainer
+				+e.row._reverse.vrow
+					.vak-12.vak-sm-6.text-center
+						+e.header
+							+e.window._girl
+							+e.P.name Alina Yaremachenko
+							+e.P.description Web-designer
+					.vak-12.vak-sm-6
+						+e.body
+							+e.P.aim
+								|Modern 
+								span.regular.color-white design 
+								|is the embodiment of beauty.
+							+e.aim-sequel
+								.js-split-word I am cute girl.
 	+b.SECTION.our-skills
 		+e.container.vcontainer
-			h3.about-us__title.vtitle.vtitle_animation.vtitle_flex.vtitle_flex-around.js-split.text-gradient.text-gradient_primary Skills
+			h3.our-skills__title.vtitle.vtitle_animation.vtitle_flex.vtitle_flex-around.js-split.text-gradient.text-gradient_primary Skills
 	//- +b.SECTION.vsection
 	//- +b.SECTION.vsection
 block footer

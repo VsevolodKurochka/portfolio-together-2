@@ -10,11 +10,15 @@
 // @include connect-font(ProximaBold,bold);
 // @include connect-font(ProximaBlack,black);
 .general-font{
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Work Sans', sans-serif;
+}
+.secondary-font{
+	font-family: 'Eczar', serif;
 }
 $font-weights: (
 	'regular' : 400,
 	'light'   : 300,
+	'semi'		: 600,
 	'bold'    : 700,
 	'black'   : 900
 );

@@ -1,57 +1,91 @@
-.text--line {
-  font-size: 80px;
-  line-height: 1;
-  @include resp-min(sm){
-    font-size: 140px;
-  }
+$stroke-colors: #F5C700, #D61C59, #000;
+$max: 3;
+$stroke-step: 10%;
+$fill: rgba(255, 255, 255, 1);
+
+.title{
+	line-height: 1;
+	width: 100%;
+
+	&__word{
+		fill: $fill;
+		font-weight: bold;
+		font-size: 80px;
+		line-height: 1;
+		//stroke-dasharray: 10%;
+		//stroke-width: 3px;
+		// &_1{
+		// 	fill: #fff;
+		// 	stroke-dashoffset: 5%;
+		// 	stroke: nth($stroke-colors, 1);
+		// }
+		// &_2{
+		// 	stroke-dashoffset: 15%;
+		// 	stroke: nth($stroke-colors, 2);
+		// }
+		// &_3{
+		// 	stroke-dashoffset: 45%;
+		// 	stroke: nth($stroke-colors, 3);
+		// }
+		// &_animation{
+		// 	fill: $fill;
+		// 	stroke: palette('accent');
+		// 	stroke-dasharray: $stroke-step * ($max - 1);
+			
+		// 	animation: stroke-offset 5s infinite linear;
+
+		// 	will-change: stroke-dashoffset;
+			
+		// 	@for $item from 1 through $max {
+		// 		$stroke-color: nth($stroke-colors, $item);
+				
+		// 		&:nth-child(#{$item}) {
+		// 			stroke: $stroke-color;
+		// 			stroke-dashoffset: $stroke-step * $item;
+		// 			//animation-duration: #{$item * 1.2 + 's'};
+		// 		}
+		// 	}
+		// }
+		// @include resp-min(sm){
+		// 	stroke-width: 5px;
+		// }
+	}
+	&_start{
+		min-height: 300px;
+	}
+	@include resp-min(sm){
+		&_end{
+			min-height: 175px;
+		}
+		&__word{
+			font-size: 160px;
+		}
+	}
 }
 
-// svg {
-//   position: absolute;
-//   width: 100%;
-//   height: 100%;
-// }
 
-$stroke-colors: #F5C700, #D61C59, #E7D84B, #EFEAC5, #000;
-$max: 5;
-$stroke-step: 15%; 
 .text-copy {
-  fill: rgba(255, 255, 255, 0.02);
-  stroke: palette('accent');
-  stroke-dasharray: $stroke-step * ($max - 1);
-  stroke-width: 3px;
-  
-  animation: stroke-offset 8s infinite ease;
-  
-  @for $item from 1 through $max {
-    $stroke-color: nth($stroke-colors, $item);
-    
-    &:nth-child(#{$item}) {
-      stroke: $stroke-color;
-      stroke-dashoffset: $stroke-step * $item;
-      //animation-duration: #{$item * 1.2 + 's'};
-    }
-  }
-  // &:nth-child(1){
-  //   animation-duration: 4s;
-  // }
-  // &:nth-child(2){
-  //   animation-duration: 3s;
-  // }
-  // &:nth-child(3){
-  //   animation-duration: 5s;
-  // }
-  // &:nth-child(4){
-  //   animation-duration: 8s;
-  // }
-  // &:nth-child(5){
-  //   animation-duration: 2s;
-  // }
+	
+	// &:nth-child(1){
+	//   animation-duration: 4s;
+	// }
+	// &:nth-child(2){
+	//   animation-duration: 3s;
+	// }
+	// &:nth-child(3){
+	//   animation-duration: 5s;
+	// }
+	// &:nth-child(4){
+	//   animation-duration: 8s;
+	// }
+	// &:nth-child(5){
+	//   animation-duration: 2s;
+	// }
 }
 
 @keyframes stroke-offset {
-  50% {
-    stroke-dashoffset: $stroke-step*2;  
-    stroke-dasharray: 0 $stroke-step * $max/2;
-  }
+	50% {
+		stroke-dashoffset: $stroke-step*2;  
+		stroke-dasharray: 0 $stroke-step * $max/2;
+	}
 }

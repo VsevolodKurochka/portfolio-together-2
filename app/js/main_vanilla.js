@@ -25,160 +25,7 @@
 			addClass(element, cls);
 		}
 	}
-	// Modal conctructor
-	this.Modal = function(){
 
-		// Create global element references
-		this.closeButton = null;
-		this.modal = null;
-		this.overlay = null;
-		this.name = "vmodal";
-
-		this.classes = {
-			showing: this.name + '_showing_in',
-			overlay: this.name + '__overlay'
-		}
-		var defaults = {
-			id: null,
-			className: this.name + "_default " + this.name + "_center",
-			closeButton: true,
-			title: null,
-			titleClass: this.name + "__title",
-			titleTag: "p",
-			content: null,
-			overlay: true
-		}
-		
-		this.options = extendDefaults(defaults, arguments[0]);
-		//this.appendToDocument();
-	}	
-
-
-	// Public methods
-
-	// Modal.prototype.appendToDocument = function(){
-		
-	// }
-
-	Modal.prototype.open = function(){
-		buildOut.call(this);
-		initialize.call(this);
-		addClass(this.modal, this.classes.showing);
-		addClass(this.overlay, this.classes.showing);
-		addClass(document.body, 'vmodal-open');
-	}	
-
-	Modal.prototype.close = function(){
-		removeClass(this.overlay, this.classes.showing);
-		removeClass(this.modal, this.classes.showing);
-		removeClass(document.body, 'vmodal-open');
-		this.modal.parentNode.removeChild(this.modal);
-		this.overlay.parentNode.removeChild(this.overlay);
-	}
-
-
-	// Private functions
-
-	function extendDefaults(oldObject, newObject){
-		var property;
-		for(property in newObject){
-			if(newObject.hasOwnProperty(property)){
-				oldObject[property] = newObject[property];
-			}
-		}
-		return oldObject;
-	}
-
-
-	function buildOut(){
-		var d = document, dFragment, dialog, box, title, content, header, body, footer;
-
-		dFragment = d.createDocumentFragment();
-
-		function newElem(tag, params, parentName){
-			var elem = document.createElement(tag);
-			for(p in params){
-				elem.setAttribute(p, params[p]);
-			}
-			if(parentName){
-				parentName.appendChild(elem);
-			}
-			return elem;
-		}
-		// Create wrap
-			this.modal = newElem("div",{
-				'id': this.options.id,
-				'class': this.name + " " + this.options.className
-			});
-
-		// Create box
-			box = newElem("div",{
-				'class': this.name + "__box"
-			}, this.modal);
-
-		// Create header
-			header = newElem("div",{
-				'class': this.name + "__header"
-			}, box);
-
-		// Create body
-			body = newElem("div",{
-				'class': this.name + "__body"
-			}, box);
-
-		// Create footer
-			footer = newElem("div",{
-				'class': this.name + "__footer"
-			}, box);
-
-
-		if(this.options.closeButton == true){
-			this.closeButton = newElem("button", {
-				'class': this.name + "__close",
-				'data-close': this.name
-			}, header);
-			this.closeButton.innerHTML = "&times;";
-		}
-
-
-		if(typeof this.options.title === "string"){
-			title = newElem(this.options.titleTag, {
-				'class': this.options.titleClass
-			}, header);
-			title.innerHTML = this.options.title;
-		}
-
-
-		if(typeof this.options.content === "string"){
-			content = this.options.content;
-		}else{
-			content = this.options.content.innerHTML;
-		}
-		body.innerHTML = content;
-
-
-		dFragment.appendChild(this.modal);
-
-		if(this.options.overlay == true){
-			this.overlay = newElem("div",{
-				'class': this.classes.overlay
-			}, dFragment);
-		}
-
-		
-		d.body.appendChild(dFragment);
-	}
-
-
-	function initialize(){
-		
-		if(this.overlay){
-			this.overlay.addEventListener('click', this.close.bind(this));
-		}
-		if(this.closeButton){
-			this.closeButton.addEventListener('click', this.close.bind(this));
-		}
-	}
 
 	document.addEventListener("DOMContentLoaded", function(){
 
@@ -188,9 +35,6 @@
 			menuActive: 'vnav__menu_active'
 		}
 
-		var modalCollect = [];
-		var modalBtn = d.querySelectorAll('[data-func="vmodal"]');
-		var modalClass, modalTarget, modalTitle, modalContent;
 
 		var jsNav = d.getElementById('navigation');
 		//var jsNavBtn = d.getElementById('js-vnav__btn');
@@ -225,64 +69,110 @@
 			}
 
 
-		for(var i = 0; i < modalBtn.length; i++){
-			modalBtn[i].addEventListener('click', function(){
-
-				var modalData = this.dataset;
-
-				
-				modalContent = modalData.content.replace("#", "");
-				
-				
-				if( ifExist(document.getElementById(modalContent) ) ){
-
-					modalTitle = modalData.title;
-					modalID = modalData.id;
-
-					modalCollect[i] = modalID;
-
-					modalCollect[i] = new Modal({
-						id: modalID,
-						title: modalTitle,
-						content: d.getElementById(modalContent)
-					}).open();
-
-
-					if(this.dataset.video != undefined){
-						
-						var this_modalID = d.getElementById(modalID);
-						modalClass = this.dataset.class;
-						var this_modalVideoWrap = this_modalID.getElementsByClassName('vmodal__video')[0];
-						var this_modalIframe = d.createElement('iframe');
-						var this_modalVideo = this.dataset.video;
-
-						addClass(this_modalID, modalClass);
-						removeClass(this_modalID, 'vmodal_default');
-						addClass(this_modalIframe, 'vmodal__iframe');
-						this_modalVideoWrap.appendChild(this_modalIframe);
-						this_modalIframe.setAttribute('src', this_modalVideo);
-
-					}
-
-				}else{
-					log('No element with ' + modalContent + ' id.');
-				}
-
-			});
-		}
-
 		// Connect particles
-		particlesJS.load('particles-js', 'js/lib/particles.json', function() {
-		  console.log('callback - particles.js config loaded');
-		});
+		// particlesJS.load('particles-js', 'js/lib/particles.json', function() {
+		// 	console.log('callback - particles.js config loaded');
+		// });
 
-		// Parallax
-		if(document.documentElement.clientWidth > 1025){
-			var scenes = document.getElementsByClassName('scene');
-			for(var i = 0; i < scenes.length; i++){
-				new Parallax(scenes[i]);
-			}
+		
+		// TYPER
+		var movieType = document.getElementById('movie-type');
+		if(typeof(movieType) != 'undefined' && movieType != null){
+			typer('#movie-type')
+				.line('Hello!', {speed: 50})
+				.pause(1500)
+				.back('all')
+				.continue('What is your mood today?')
+				.end(function(){
+					removeClass(document.getElementById('movie-variety'), 'variety_hidden')
+				});
 		}
+		
+		// Switch theme
+
+		var body = document.getElementsByTagName('BODY')[0];
+		var movie = document.getElementById('movie');
+		var varietyItems = document.getElementsByClassName('js-variety');
+		var varietyItemsL = varietyItems.length;
+
+		function checkPalette(functionPalette, callback){
+			addClass(body, functionPalette);
+	  	if(functionPalette == 'theme-dark'){
+	  		removeClass(body, 'theme-light');
+			}else if(functionPalette == 'theme-light'){
+				removeClass(body, 'theme-dark');
+			}
+			if(callback && typeof(callback) === 'function'){
+				callback();
+			}
+	  }
+
+	  for(var i = 0; i < varietyItemsL; i++){
+	  	varietyItems[i].addEventListener('click', function(){
+	  		var palette = this.dataset.palette;
+	  		checkPalette(palette, function(){
+	  			addClass(movie, 'movie_hidden');
+	  		});
+	  	});
+	  }
+
+	  // Title split each letter
+
+	  var splitTitles = document.getElementsByClassName('js-split');
+	  var splitTitlesL = splitTitles.length;
+
+	  for(var i = 0; i < splitTitlesL; i++){
+
+	  	// Get current title
+	  	var singleSplit = splitTitles[i];
+
+	  	// Cut title's text into array
+	  	var chars = singleSplit.innerHTML.split('');
+
+	  	// Get length of array 
+	  	var charsL = chars.length;
+
+	  	// Clear title's text
+	  	singleSplit.innerHTML = '';
+
+	  	for(var j = 0; j < charsL; j++){
+	  		// Write how should look each letter
+	  		var charsSpan = '<span><span>' + chars[j] + '</span></span>';
+
+	  		// Add to title this letter
+	  		singleSplit.innerHTML += charsSpan;
+	  	}
+	  }
+
+
+	  // Split text by words
+
+	  	var splitText = document.getElementsByClassName('js-split-word');
+	  	var splitTextL = splitText.length;
+
+	  	for(var i = 0; i < splitTextL; i++){
+	  		var currentEl = splitText[i];
+	  		var currentElText = currentEl.innerHTML.split(' ');
+	  		var currentElTextL = currentElText.length;
+	  		currentEl.innerHTML = '';
+	  		for(var j = 0; j < currentElTextL; j++){
+	  			var word = '<span>' + currentElText[j] + '</span>';
+	  			currentEl.innerHTML += word;
+	  		}
+	  	}
+
+
+	  // Visibility
+
+		function checkVisible(elm) {
+		  var rect = elm.getBoundingClientRect();
+		  var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+		  return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+		}
+
+		 //log(checkVisible(document.getElementById('particles-js')));
+  
+
 		
 		// Button menu
 			//clickChangeClasses(jsNavBtn, classes.active, jsNav, classes.menuActive);
@@ -430,28 +320,28 @@
 		// 		}
 		// 	}	
 		// 	function toggleSlide1(el) {
-  //       var el_max_height = 0;
+	//       var el_max_height = 0;
 
-  //       if(el.getAttribute('data-max-height')) {
-  //         if(el.style.maxHeight.replace('px', '').replace('%', '') === '0') {
-  //           el.style.maxHeight = el.getAttribute('data-max-height');
-  //         }else {
-  //           el.style.maxHeight = '0';
-  //         }
-  //       }else {
-  //           el_max_height                  = getHeight(el) + 'px';
-  //           el.style['transition']         = 'max-height 0.5s ease-in-out';
-  //           el.style.overflowY             = 'hidden';
-  //           el.style.maxHeight             = '0';
-  //           el.setAttribute('data-max-height', el_max_height);
-  //           el.style.display               = 'block';
+	//       if(el.getAttribute('data-max-height')) {
+	//         if(el.style.maxHeight.replace('px', '').replace('%', '') === '0') {
+	//           el.style.maxHeight = el.getAttribute('data-max-height');
+	//         }else {
+	//           el.style.maxHeight = '0';
+	//         }
+	//       }else {
+	//           el_max_height                  = getHeight(el) + 'px';
+	//           el.style['transition']         = 'max-height 0.5s ease-in-out';
+	//           el.style.overflowY             = 'hidden';
+	//           el.style.maxHeight             = '0';
+	//           el.setAttribute('data-max-height', el_max_height);
+	//           el.style.display               = 'block';
 
-           
-  //           setTimeout(function() {
-  //               el.style.maxHeight = el_max_height;
-  //           }, 10);
-  //       }
-  //   }
+					 
+	//           setTimeout(function() {
+	//               el.style.maxHeight = el_max_height;
+	//           }, 10);
+	//       }
+	//   }
 		// var vcollapse = document.getElementsByClassName('vcollapse');
 
 		// for(var i = 0; i < vcollapse.length; i++){

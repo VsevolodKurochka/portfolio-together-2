@@ -1,0 +1,205 @@
+// Monitor
+
+	$monitor-ui: #ececec;
+
+	$monitor-acts-list: (
+		'close'			: #ea1123,
+		'expand'		: #f8e042,
+		'turn'			: #7dbf44
+	);
+	
+	// Highlighting code inside monitor
+	$monitor-syntax-highlighting: (
+		'blue'			: #3a7dda,
+		'green'			: #18bc9c,
+		'yellow'		: #edd834
+	);
+.code{
+	display: none;
+	&__title{
+		@extend .secondary-font;
+	}
+}
+@include resp-min(md){
+	.code{
+		display: block;
+		&__header{
+			margin-bottom: 30px;
+			text-align: center;
+		}
+		&__title{
+			margin-bottom: 5px;
+			font-size: 50px;
+			text-align: center;
+			line-height: 1;
+			color: setColor('white');
+			font-weight: 100;
+		}
+		&__description{
+			font-size: 18px;
+			color: palette('accent');
+		}
+		&__nav{
+			position: relative;
+			width: 100%;
+			padding: 5px 10px;
+			background-color: $monitor-ui;
+			border-bottom: 1px solid #e0e0e0;
+			z-index: z('default');
+			font-size: 0;
+			text-align: center;
+			color: #a5a5a5;
+			&-act{
+				&-wrap{
+					position: absolute;
+					left: 15px;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+				display: inline-block;
+				vertical-align: middle;
+				margin-right: 7.5px;
+				@include size(8px);
+				border-radius: 50%;
+				@each $act-name, $act-color in $monitor-acts-list{
+					&_#{$act-name}{
+						background-color: $act-color;
+					}
+				}
+			}
+			&-title{
+				font-size: 14px;
+			}
+		}
+		&__content{
+			max-width: 700px;
+			height: 380px;
+			background: #fff;
+			box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+			overflow: hidden;
+		}
+	}
+
+	.CodeFlask{
+		position:relative;
+		overflow:hidden;
+	}
+
+	.CodeFlask__textarea,
+	.CodeFlask__pre{
+		box-sizing:border-box;
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		padding:1rem;
+		border:none;
+		font-family: monospace;
+		font-size:13px;
+		background:transparent;
+		white-space:pre-wrap;
+		line-height:1.5em;
+		word-wrap: break-word;
+	}
+
+	.CodeFlask__textarea{
+		border:none;
+		background:transparent;
+		outline:none;
+		resize:none;
+		opacity:0.4;
+		margin:0;
+		z-index:1;
+		height:100%;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.CodeFlask__pre{
+		z-index:2;
+		pointer-events:none;
+		overflow-y:auto;
+		margin:0;
+	}
+
+	.CodeFlask__code{
+			font-size:inherit;
+			font-family:inherit;
+			color:inherit;
+			display:block;
+	}
+
+	code, pre, textarea {
+			line-height:1.4rem !important;
+	}
+
+	.token.comment,
+	.token.prolog,
+	.token.doctype,
+	.token.cdata {
+			color: slategray;
+	}
+
+	.token.punctuation {
+			color: #999;
+	}
+
+	.namespace {
+			opacity: .7;
+	}
+
+	.token.property,
+	.token.tag,
+	.token.boolean,
+	.token.number,
+	.token.constant,
+	.token.symbol,
+	.token.deleted {
+			color: #905;
+	}
+
+	.token.selector,
+	.token.attr-name,
+	.token.string,
+	.token.char,
+	.token.builtin,
+	.token.inserted {
+			color: #690;
+	}
+
+	.token.operator,
+	.token.entity,
+	.token.url,
+	.language-css .token.string,
+	.style .token.string {
+			color: #a67f59;
+	}
+
+	.token.atrule,
+	.token.attr-value,
+	.token.keyword {
+			color: #07a;
+	}
+
+	.token.function {
+			color: #DD4A68;
+	}
+
+	.token.regex,
+	.token.important,
+	.token.variable {
+			color: #e90;
+	}
+
+	.token.important,
+	.token.bold {
+			font-weight: bold;
+	}
+	.token.italic {
+			font-style: italic;
+	}
+
+	.token.entity {
+			cursor: help;
+	}
+
+}

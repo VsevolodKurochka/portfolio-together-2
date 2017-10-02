@@ -18,10 +18,10 @@ html(lang="ru")
 				modifier: '_'
 			})
 	body.theme-light
-		//+b.movie
+		//+b.movie#movie
 			+e.text
-				+e.P.title.type-it Hello!
-				+b.variety._hidden
+				+e.P.title.type-it#movie-type
+				+b.variety._hidden#movie-variety
 					+e.P.title At any time you can switch the color palette
 					+e.item-wrap
 						+e.item._dark.js-variety(data-palette="theme-dark")
@@ -74,8 +74,6 @@ html(lang="ru")
 										+e.text._light.js-variety(data-palette="theme-light") Light Kitchen
 										+e.text._dark.js-variety(data-palette="theme-dark") Dark Kitchen
 		div.site#page
-			block header
-				include layouts/header
 			div.site-content#content
 				block content
 			block footer

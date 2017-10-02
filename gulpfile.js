@@ -4,24 +4,30 @@
 	3. npm install
 	4. gulp
 */
-var gulp = require('gulp'),
-		install = require('gulp-install'),
-		pug = require('gulp-pug'),
-		sass = require('gulp-sass'),
-		browserSync = require('browser-sync'),
-		del = require('del'),
-		autoprefixer = require('gulp-autoprefixer'),
-		notify = require('gulp-notify');
-
+var gulp 								= require('gulp'),
+		install 						= require('gulp-install'),
+		browserSync 				= require('browser-sync'),
+		pug 								= require('gulp-pug'),
+		rename							= require('gulp-rename'),
+		htmlbeautify 				= require('gulp-html-beautify'),		
+		notify 							= require('gulp-notify'),
+		sass 								= require('gulp-sass'),
+		sassGlob 						= require('gulp-sass-glob'),
+		autoprefixer 				= require('gulp-autoprefixer'),
+		babel 							= require('gulp-babel'),
+		del 								= require('del');
+		
 // Define sourses object
 var sourses = {
 	sass: 'app/sass/**/*.scss',
 	css: 'app/css/style.css',
 	pug: 'app/**/*.pug',
 	scripts: 'app/js/**/*.js',
+	es6: 'app/es6/**/*.js',
 	fonts: 'app/fonts/**/*',
 	img: 'app/img/*',
 	html: 'app/*.html',
+	php: 'app/**/*.php',
 	default: 'app/'
 };
 
@@ -31,19 +37,21 @@ var destinations = {
 	fonts: 'dest/fonts',
 	scripts: 'dest/js',
 	img: 'dest/img',
-	html: 'dest/'
+	default: 'dest/',
 };
 
 gulp.src(['./package.json'])
 	.pipe(install());
 
 gulp.task('sass', function(){
-	return gulp.src(sourses.sass)
+	return gulp
+		.src(sourses.sass)
+		.pipe(sassGlob())
 		.pipe(sass({
 			outputStyle: 'expanded'
 		}).on('error', sass.logError))
 		.pipe(autoprefixer(
-			{browsers: ['last 15 versions', 'ie 11', 'Android >= 4.1', 'Safari >= 4', 'iOS >= 4']}
+			{browsers: ['last 5 versions']}
 		))
 		.pipe(gulp.dest('app/css'))
 		.pipe(browserSync.reload({stream: true}))
@@ -55,10 +63,29 @@ gulp.task('pug', function() {
 			pug({
 				pretty: true
 			}).on('error', notify.onError(function (error) {
-    		return 'ERROR. \n' + error;
+				return 'ERROR. \n' + error;
 			}))
-		) // pip to pug plugin
-		.pipe(gulp.dest(sourses.default)); // tell gulp our output folder
+		)
+		// .pipe(rename({
+		// 	extname: '.php'
+		// }))
+		.pipe(gulp.dest(sourses.default));
+});
+
+gulp.task('htmlbeautify', function() {
+  gulp.src('app/*.html')
+    .pipe(htmlbeautify())
+    .pipe(gulp.dest('app/'))
+});
+
+gulp.task('babel', function(){
+	return gulp.src(sourses.es6)
+		.pipe(babel({
+			presets: ['es2015']
+		})).on('error', notify.onError(function (error) {
+				return 'ERROR. \n' + error;
+			}))
+		.pipe(gulp.dest('app/js'));
 });
 
 gulp.task('browser-sync', function(){
@@ -66,15 +93,18 @@ gulp.task('browser-sync', function(){
 		server: {
 			baseDir: 'app'
 		},
+		//proxy: 'basic.template',
 		notify: false
 	});
 });
 
-gulp.task('watch', ['browser-sync', 'pug', 'sass'] ,function(){
+gulp.task('watch', ['browser-sync', 'pug', 'sass', 'babel', 'htmlbeautify'] ,function(){
 	gulp.watch(sourses.sass, ['sass']);
 	gulp.watch(sourses.html, browserSync.reload);
 	gulp.watch(sourses.js, browserSync.reload);
 	gulp.watch(sourses.pug, ['pug']);
+	gulp.watch(sourses.es6, ['babel']);
+	gulp.watch(sourses.php, browserSync.reload);
 });
 
 gulp.task('clean', function(){
@@ -95,7 +125,17 @@ gulp.task('build', ['clean', 'sass'], function(){
 		.pipe(gulp.dest(destinations.img))
 
 	var buildHtml = gulp.src(sourses.html)
-		.pipe(gulp.dest(destinations.html))
+		.pipe(gulp.dest(destinations.default))
+
+	var buildPHP = gulp.src(sourses.php)
+		.pipe(gulp.dest(destinations.default))
+
+	var htaccess = gulp.src('.htaccess')
+		.pipe(gulp.dest(destinations.default))
+
+	var robots = gulp.src('robots.txt')
+		.pipe(gulp.dest(destinations.default))
+
 });
 
 //If you enter 'gulp', gulp will do 'watch' function

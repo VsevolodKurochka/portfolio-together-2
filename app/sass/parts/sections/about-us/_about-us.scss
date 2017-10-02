@@ -1,134 +1,146 @@
 .about-us{
 	position: relative;
-	background-color: #fff;
+	//background-color: #fff;
 	z-index: z('default');
 	&__title{
-		//margin-top: -170px;
 		position: absolute;
 		left: 0;
 		top: 0;
 		width: 100%;
 		z-index: z('default');
 	}
+	&__header{
+		position: relative;
+		display: inline-block;
+		z-index: 1;
+	}
 	&__container{
 		min-height: 0;
 	}
-	
-	// &__item{
-	// 	display: inline-block;
-	// 	width: 270px;
-	// }
-	
-	&__image{
+	&__window{
 		position: relative;
-		left: -25px;
-		top: 25px;
-		transform: rotate(45deg);
-
-		&-wrap{
-			text-align: center;
-			height: 215px;
+		display: inline-block;
+		@include size(270px);
+		overflow: hidden;
+		border-radius: 100%;
+		background: {
+			repeat: no-repeat;
+			position: center top;
 		}
-		&-inner{
-			position: relative;
-			display: inline-block;
-			width: 160px;
-			height: 160px;
-			overflow: hidden;
-			transform: rotate(-45deg);
-			transform-origin: center center;
+		&_man{
+			background: {
+				image: url('../img/man-full-small.png');
+			}
+		}
+		&_girl{
+			background: {
+				image: url('../img/girl-full-small.png');
+			}
 		}
 	}
-	&__name,
-	&__description{
-		text-align: center;
+	@at-root{
+		%about-bg-light{
+			background-color: transparentize(#fff, 0.1);
+		}
 	}
+	
 	&__name{
-		position: relative;
+		position: absolute;
+		padding: 15px;
 		font-size: 25px;
 		font-weight: 700;
-		padding-bottom: 15px;
-		margin-bottom: 15px;
-		&:before{
-			@include pseudo();
-			left: 50%;
-			bottom: 0;
-			width: 60px;
-			height: 3px;
-			margin-left: -30px;
-			background-color: #000;
-		}
-	}
-	&__greetings{
-		&:first-letter{
-			font-size: 200%;
-			color: #000;
-		}
+		@extend %about-bg-light;
 	}
 	&__description{
-		margin-bottom: 15px;
-		font-size: 20px;
-		font-weight: 100;
+		padding: 5px 15px;
+		position: absolute;
+		font-size: 18px;
+		font-weight: bold;
+		transform: rotate(-90deg);
 		
+		@extend %about-bg-light;
 	}
-	&__text{
-		position: relative;
-		padding-left: 15px;
-		padding-right: 15px;
-		font-size: 16px;
-		color: #666;
-		text-align: left;
-		overflow: hidden;
-	}
-	&__list{
-		list-style: none;
-		li:not(:last-child){
-			margin-bottom: 30px;
+	&__aim{
+		margin-bottom: 30px;
+		font-size: 45px;
+		font-weight: 900;
+		line-height: 1;
+		text-transform: uppercase;
+		@extend .secondary-font;
+		&-sequel{
+			font-size: 20px;
+			span{
+				display: inline-block;
+				padding: 5px 10px;
+				@extend %about-bg-light;
+				margin-right: 5px;
+				margin-bottom: 5px;
+			}
 		}
 	}
 	&__part{
 		position: relative;
-		padding-top: 45px;
-		padding-bottom: 45px;
+		padding-top: 75px;
+		padding-bottom: 75px;
 		&_man{
-			background-color: #fff;
+			transform: skewY(10deg);
 		}
 		&_girl{
-			background-color: palette('accent');
+			transform: skewY(-10deg);
 		}
 	}
 	&__part_man &{
-		&__description{
-			color: #34d8be;
+		&__part-container{
+			transform: skewY(-10deg);
 		}
-		&__image{
-			&-inner{
-				&:after{
-					left: 34px;
-					top: 65px;
-				}
-				//background-color: #fff;
-			}
+		&__name{
+			right: 0;
+			bottom: 0;
+		}
+		&__description{
+			right: 20px;
+			top: 0;
+			transform-origin: right;
 		}
 	}
-
 	&__part_girl &{
-		&__description{
-			color: #fff;
+		&__part-container{
+			transform: skewY(10deg);
 		}
-		&__image{
-			&-inner{
-				&:after{
-					left: 21px;
-					top: 77px;
-				}
-				//background-color: palette('accent');
+		&__name{
+			left: 0;
+			bottom: 0;
+		}
+		&__description{
+			left: 20px;
+			top: 125px;
+			transform-origin: left;
+		}
+	}
+	
+	@include theme('light'){
+		background-color: palette('primary');
+		&__part_man{
+			background-color: palette('accent');
+		}
+		&__window{
+			&_man{
+				background-color: palette('secondary');
 			}
+			&_girl{
+				background-color: palette('accent');
+			}
+		}
+		&__part_girl{
+			background-color: palette('accent-secondary');
 		}
 	}
 	@include resp-max(sm){
 		&__item{
 			margin-bottom: 30px;
+		}
+		&__header{
+			margin-bottom: 45px;
 		}
 	}
 	@include resp-min(sm){
@@ -138,43 +150,29 @@
 		&__part{
 			padding-top: 75px;
 			padding-bottom: 75px;
-			&_man{
-				text-align: right;
-			}
-			&_girl{
-				text-align: left;
+		}
+		&__window{
+			background: {
+				attachment: fixed;
 			}
 		}
 	}
 	@include resp-min(md){
-		&__list{
-			position: absolute;
-			top: 0;
-			width: 80%;
-			height: 100%;
-			&-layer:nth-child(even){
-				text-align: right;
-				color: #000;
-			}
-			@for $i from 1 through 5 {
-				&-layer:nth-child(#{$i}){
-					top: (($i * 70)) + px !important;
-				}
-			}
-		}
-		&__part_man &{
-			&__list{
-				left: 45px;
-			}
-		}
-		&__part_girl &{
-			&__list{
 
-				right: 45px;
-			}
+		
+		&__part{
+			padding-top: 125px;
+			padding-bottom: 125px;
 		}
-		&__text{
-			height: 400px;
+	}
+
+	@include resp-min(lg){
+		&__window{
+			@include size(400px);
+			background-position: 25% 20%;
+		}
+		&__aim{
+			font-size: 70px;
 		}
 	}
 	
