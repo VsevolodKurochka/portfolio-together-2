@@ -1,179 +1,121 @@
 .about-us{
+	$self: &;
 	position: relative;
-	//background-color: #fff;
 	z-index: z('default');
-	&__title{
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		z-index: z('default');
-	}
-	&__header{
-		position: relative;
-		display: inline-block;
-		z-index: 1;
-	}
-	&__container{
-		min-height: 0;
-	}
-	&__window{
-		position: relative;
-		display: inline-block;
-		@include size(270px);
-		overflow: hidden;
-		border-radius: 100%;
-		background: {
-			repeat: no-repeat;
-			position: center top;
-		}
-		&_man{
-			background: {
-				image: url('../img/man-full-small.png');
-			}
-		}
-		&_girl{
-			background: {
-				image: url('../img/girl-full-small.png');
-			}
-		}
-	}
 	@at-root{
-		%about-bg-light{
-			background-color: transparentize(#fff, 0.1);
-		}
-	}
-	
-	&__name{
-		position: absolute;
-		padding: 15px;
-		font-size: 25px;
-		font-weight: 700;
-		@extend %about-bg-light;
-	}
-	&__description{
-		padding: 5px 15px;
-		position: absolute;
-		font-size: 18px;
-		font-weight: bold;
-		transform: rotate(-90deg);
-		
-		@extend %about-bg-light;
-	}
-	&__aim{
-		margin-bottom: 30px;
-		font-size: 45px;
-		font-weight: 900;
-		line-height: 1;
-		text-transform: uppercase;
-		@extend .secondary-font;
-		&-sequel{
-			font-size: 20px;
-			span{
-				display: inline-block;
-				padding: 5px 10px;
-				@extend %about-bg-light;
-				margin-right: 5px;
-				margin-bottom: 5px;
-			}
-		}
-	}
-	&__part{
-		position: relative;
-		padding-top: 75px;
-		padding-bottom: 75px;
-		&_man{
-			transform: skewY(10deg);
-		}
-		&_girl{
-			transform: skewY(-10deg);
-		}
-	}
-	&__part_man &{
-		&__part-container{
-			transform: skewY(-10deg);
-		}
-		&__name{
-			right: 0;
-			bottom: 0;
-		}
-		&__description{
-			right: 20px;
-			top: 0;
-			transform-origin: right;
-		}
-	}
-	&__part_girl &{
-		&__part-container{
-			transform: skewY(10deg);
-		}
-		&__name{
-			left: 0;
-			bottom: 0;
-		}
-		&__description{
-			left: 20px;
-			top: 125px;
-			transform-origin: left;
-		}
-	}
-	
-	@include theme('light'){
-		background-color: palette('primary');
-		&__part_man{
-			background-color: palette('accent');
-		}
-		&__window{
-			&_man{
-				background-color: palette('secondary');
-			}
-			&_girl{
-				background-color: palette('accent');
-			}
-		}
-		&__part_girl{
-			background-color: palette('accent-secondary');
-		}
-	}
-	@include resp-max(sm){
-		&__item{
+		%about-us-offset{
 			margin-bottom: 30px;
 		}
-		&__header{
-			margin-bottom: 45px;
+	}
+	&__title{
+		margin-top: -75px;	
+	}
+	&__image{
+		&-wrapper{
+			font-size: 0;
 		}
 	}
+	&__name{
+		font-family: 'Archivo Black', serif;
+		line-height: 1;
+		@extend %about-us-offset;
+	}
+	&__description{
+		line-height: 1.2;
+		padding-left: 15px;
+		border-left-width: 5px;
+		border-left-style: solid;
+		@extend %about-us-offset;
+	}
+	&__body{
+		margin-bottom: 30px;
+	}
+	&__aim{
+		&-header{
+			line-height: 1;
+			font-size: 0;
+		}
+		&-icon{
+			display: inline-block;
+			width: 40px;
+			max-height: 100%;
+			&-path{
+				fill: palette('accent');
+			}
+		}
+	}
+	&__signature{
+		&-wrapper{
+			margin-top: 30px;
+			padding-left: 35px;
+			font-size: 0;
+		}
+		height: 100px;
+	}
+
+	&__part{
+		&_man{
+			#{$self}{
+				&__description{
+					border-left-color: palette('accent');
+					color: palette('accent');
+				}
+				// &__body{
+				// 	border-color: palette('secondary');
+				// }
+				&__aim{
+					&-accent{
+						color: palette('accent');
+					}
+					&-icon{
+						&-path{
+							fill: palette('accent');
+						}
+					}
+				}
+			}
+		}
+		&_girl{
+			background-color: #ededef;
+			#{$self}{
+				&__description{
+					border-bottom-color: palette('primary');
+					color: palette('primary');
+				}
+				// &__body{
+				// 	border-color: palette('secondary');
+				// }
+				&__aim{
+					&-accent{
+						color: palette('primary');
+					}
+					&-icon{
+						&-path{
+							fill: palette('primary');
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	@include resp-min(sm){
-		&__title{
-			top: -75px;
-		}
-		&__part{
-			padding-top: 75px;
-			padding-bottom: 75px;
-		}
-		&__window{
-			background: {
-				attachment: fixed;
+		&__row{
+			align-items: center;
+			&_reverse{
+				flex-direction: row-reverse;
 			}
 		}
 	}
 	@include resp-min(md){
-
-		
-		&__part{
-			padding-top: 125px;
-			padding-bottom: 125px;
+		&__name{
+			font-size: 65px;
+		}
+		&__description{
+			font-size: 30px;
+		}
+		&__body{
+			font-size: 50px;
 		}
 	}
-
-	@include resp-min(lg){
-		&__window{
-			@include size(400px);
-			background-position: 25% 20%;
-		}
-		&__aim{
-			font-size: 70px;
-		}
-	}
-	
 }

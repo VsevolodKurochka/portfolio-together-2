@@ -1,0 +1,64 @@
+.portfolio{
+	//background-color: palette('accent-secondary');
+	&__column{
+		padding-left: 0;
+		padding-right: 0;
+		&_image{
+			font-size: 0;
+		}
+		&_info{
+			background-color: palette('accent');
+		}
+	}
+	&__info{
+		padding: 30px 15px;
+		height: 100%;
+		color: setColor('white');
+		&-block{
+			font-size: 15px;
+			margin-bottom: 15px;
+			padding-bottom: 15px;
+			border-bottom: 1px solid palette('primary');
+			&-title{
+				position: relative;
+				padding-bottom: 7.5px;
+				margin-bottom: 15px;
+				font-size: 18px;
+				color: palette('secondary');
+				@extend .secondary-font;
+				&:before{
+					@include pseudo();
+					left: 0;
+					bottom: 0;
+					width: 50px;
+					height: 2px;
+					background-color: palette('secondary');
+				}
+			}
+		}
+		&-tags{
+			font-size: 0;
+		}
+		&-tag{
+			display: inline-block;
+			padding: 5px;
+			margin-bottom: 5px;
+			margin-right: 5px;
+			font-size: 13px;
+			background-color: #fff;
+			color: palette('accent');
+		}
+	}
+	&__title{
+		margin-bottom: 30px;
+		font-size: 24px;
+		color: palette('primary');
+		@extend .secondary-font;
+	}
+	@include resp-min(md){
+		&__info{
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
+}

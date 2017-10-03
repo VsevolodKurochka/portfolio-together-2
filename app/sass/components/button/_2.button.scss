@@ -21,30 +21,46 @@
   @extend %button-placeholder;
   &_large{
     @include button-size($btn-large-padding, $btn-large-size);
+    @include resp-min(sm){
+      @include button-size($btn-sm-large-padding, $btn-sm-large-size);
+    }
   }
   &_block{
     display: block;
     width: 100%;
     text-align: center;
   }
-  &_shadow{
-    &-brand-1{
-      box-shadow: 0 3px 8px 1px transparentize(setColor('brand-1'), 0.5);
-    }
+  // &_navigation{
+  //   background-color: setColor('menu', 'light');
+  //   @include resp-max(md){
+  //     padding: 15px;
+  //     width: 100%;
+  //     font-size: 18px;
+  //     text-align: left;
+  //   }
+  //   @include resp-min(md){
+  //     background-color: setColor('brand-1');
+  //   }
+  // }
+  &_primary{
+    @include button-static(palette('primary'), setColor('white'));
+    box-shadow: 10px 10px 0px lighten(palette('primary'), 25%);
     &:hover{
-      box-shadow: none;
+      box-shadow: 5px 5px 0px lighten(palette('primary'), 25%);
     }
   }
-  &_navigation{
-    background-color: setColor('menu', 'light');
-    @include resp-max(md){
-      padding: 15px;
-      width: 100%;
-      font-size: 18px;
-      text-align: left;
+  &_accent{
+    @include button-static(palette('accent'), setColor('white'));
+    box-shadow: 10px 10px 0px lighten(palette('accent'), 25%);
+    &:hover{
+      box-shadow: 5px 5px 0px lighten(palette('accent'), 25%);
     }
-    @include resp-min(md){
-      background-color: setColor('brand-1');
+  }
+  &_accent-secondary{
+    @include button-static(palette('accent-secondary'), setColor('white'));
+    box-shadow: 10px 10px 0px lighten(palette('accent-secondary'), 25%);
+    &:hover{
+      box-shadow: 5px 5px 0px lighten(palette('accent-secondary'), 25%);
     }
   }
 
@@ -52,7 +68,7 @@
   //- Iteration button fluid color
   //-
 
-  @include button-static-iteration();
+  //@include button-static-iteration();
 
   //-
   //- Iteration button border-color

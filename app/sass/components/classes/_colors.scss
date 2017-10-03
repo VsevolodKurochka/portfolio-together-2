@@ -2,9 +2,10 @@
 	&-white{
 		color: setColor('white');
 	}
-  &-brand{
-    &-1{
-      color: setColor('brand-1');
-    }
+  &-primary{
+  	color: palette('primary');
+  }
+  &-secondary{
+  	color: palette('secondary');
   }
 }

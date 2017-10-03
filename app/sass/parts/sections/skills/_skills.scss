@@ -1,16 +1,154 @@
 .our-skills{
 	position: relative;
 	z-index: 2;
-	padding-top: 75px;
-	padding-bottom: 75px;
 	&__title{
-		top: 0;
+		margin-bottom: 45px;
+	}
+	&__subtitle{
+		position: relative;
+		margin-bottom: 45px;
+		padding-bottom: 30px;
+		font-size: 45px;
+		line-height: 1;
+		color: palette('accent');
+		@extend .secondary-font;
+		&:before{
+			@include pseudo();
+			bottom: 0;
+			left: 0;
+			width: 75px;
+			height: 5px;
+			background-color: palette('accent');
+		}
+	}
+	&__column{
+		margin-bottom: 45px;
+	}
+	&__item{
+		$item: &;
+		$skills-colors: (
+			'js'			: #f0db4f,
+			'html'		: #f16524,
+			'css'			: #27a5e0,
+			'php'			: #777bb4,
+			'wp' 			: #1d8bbe,
+			'angular'	: #e62a39,
+			'ps'			: #00c8ff,
+			'fw'			: #dfdd04,
+			'ai'			: #ff7c00
+		);
+		@at-root{
+			%skill-item-transition{
+				transition: background linear 0.5s, color linear 0.5s, border-color linear 0.5s;
+			}
+			
+		}
+		@each $skill-name, $skill-color in $skills-colors{
+			&_bg-#{$skill-name} &{
+				&-title{
+					color: $skill-color;
+				}
+				&-tech,
+				&-progress{
+					background-color: $skill-color;
+				}
+				&-progress-inner,
+				&-progress-inner-percentage{
+					background-color: darken($skill-color, 15%);
+				}
+			}
+		}
+		&-header{
+			margin-bottom: 45px;
+		}
+		&-tech{
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100px;
+			height: 100px;
+			//background-color: palette('primary');
+			@extend %skill-item-transition;
+			&-title{
+				color: setColor('white');
+				font-size: 16px;
+				@extend .secondary-font;
+			}
+			&-mark{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				padding: 5px 10px;
+				font-size: 13px;
+				background-color: palette('accent');
+				color: #fff;
+			}
+			#{$item}:hover &{
+				background-color: palette('accent');
+			}
+		}
+		&-title{
+			font-size: 20px;
+			@extend %skill-item-transition;
+			#{$item}:hover &{
+				color: palette('primary');
+			}
+		}
+		&-description{
+			font-size: 15px;
+		}
+		&-progress{
+			position: relative;
+			width: 100%;
+			height: 5px;
+			@extend %skill-item-transition;
+			&-inner{
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100%;
+				@extend %skill-item-transition;
+				&-percentage{
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					padding: 5px;
+					font-size: 13px;
+					color: setColor('white');
+					@extend .secondary-font;
+				}
+			}
+			#{$item}:hover &{
+				border-color: palette('accent');
+				&-inner{
+					background-color: palette('accent');
+				}
+			}
+		}
+		@include resp-min(sm){
+			&-header{
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+			}
+			&-tech{
+				flex-basis: 100px;
+			}
+			&-information{
+				padding-left: 15px;
+				flex-basis: 0;
+				flex-grow: 1;
+			}
+			&-information{
+				
+			}
+		}
 	}
 	@include resp-min(sm){
-		// padding-top: 150px;
-		// padding-bottom: 150px;
-		&__title{
-			top: -75px;
+		&__container{
+			margin-bottom: 45px;
 		}
 	}
 }

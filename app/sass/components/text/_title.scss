@@ -33,9 +33,9 @@
 		}
 		@for $i from 2 through 10{
 			> span:nth-child(#{$i}){
-				transform: translate3d(0, ((random(15) - 10)* $i + px) , 0);
+				transform: translate3d(0, ((random(10) - 5)* $i + px) , 0);
 				span{
-					animation-delay: ($i / 1.5) + s;
+					animation-delay: ($i / 5) + s;
 				}
 			}
 		}
@@ -67,6 +67,38 @@
 					padding-left: 100px;
 				}
 			}
+		}
+	}
+}
+.group{
+	&__title{
+		display: inline-block;
+		background-color: palette('primary');
+		padding: 30px 60px;
+		color: #fff;
+		text-transform: uppercase;
+		font-size: 40px;
+		font-family: 'Archivo Black', serif;
+	}
+	@include resp-min(sm){
+		position: absolute;
+		&.left{
+			left: 0;
+		}
+		&.top{
+			top: 30px;
+		}
+		&.left.top{
+			transform: rotate(-90deg);
+			transform-origin: 35% bottom;
+		}
+	}
+	@include resp-min(md){
+		&__title{
+			font-size: 60px;
+		}
+		&.top{
+			top: 60px;
 		}
 	}
 }

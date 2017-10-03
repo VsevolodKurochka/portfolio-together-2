@@ -9,46 +9,72 @@ block content
 		+e.element._3
 		//+e.particles#particles-js
 		.vcontainer
-			.vrow.min-sm-y-center
-				.vak-12.vak-md-6
-					+e.company-name#company-name
-					+e.H2.description.vtitle-small.light Creativity &amp; professionalism
-				.vak-12.vak-md-6
-					+b.code
-						+e.header
-							+e.P.title Don't be shy
-							+e.P.description (you can change everything)
-						+e.nav
-							+e.nav-act-wrap
-								+e.nav-act._close
-								+e.nav-act._expand
-								+e.nav-act._turn
-							+e.H1.nav-title Kitchen Of Design.js
-						+e.content#code
-					script.
-						if(document.body.clientWidth >= 1025) {
-							var styleTag = document.createElement("STYLE"),
-									flask = new CodeFlask;
-
-							document.querySelector('head').appendChild(styleTag);
-
-							flask.run('#code', {
-									language: 'css',
-									lineNumbers: false
-							});
-
-							flask.onUpdate(function(code) {
-									styleTag.innerHTML = code;
-							});
-
-							flask.update(
-								"// Feel free to play with the code. :)\n" +  
-								".code__title {\n color: white;\n text-align: center;\n text-transform: uppercase;\n}\n" +
-								".text-copy:nth-child(1) {\n stroke: #F5C700;\n stroke-dashoffset: 10%;\n}\n" + 
-								".text-copy:nth-child(2) {\n stroke: #D61C59;\n stroke-dashoffset: 20%;\n}\n"
-								);
-						}
+			+e.P.greeting Hello, we are
+			+e.company-name-wrapper
+				+e.H1.company-name._below
+					|Kitchen
+					+e.SPAN.company-name-element &amp;
+					|Design
+				+e.P.company-name._over
+					|Kitchen
+					+e.SPAN.company-name-element &amp;
+					|Design
+			+e.description-wrapper
+				+e.H2.description How to create a selling company website?
+				+e.P.description._light We will help you with this.
+			+e.button-wrapper
+				+b.BUTTON.vbtn._large._primary.effect._bounce-top(data-action="vmodal" data-open="#form") Let's start a new project
 	+b.SECTION.about-us
+		h3.about-us__title.vtitle.vtitle_animation.vtitle_flex.vtitle_flex-around.js-split.color-secondary About
+		//+b.group.left.top
+			+e.H3.title About Us
+		+e.part._man
+			.vcontainer
+				+e.row.vrow
+					+e.column._image.vak-12.vak-sm-6
+						+e.image-wrapper
+							+e.image(src='img/man-full.png')
+					+e.column._text.vak-12.vak-sm-6
+						+e.HEADER.header
+							+e.P.name Vsevolod Kurochka
+							+e.P.description Web-developer
+						+e.SECTION.body
+							+e.BLOCKQUOTE.aim
+								+e.aim-header
+									+e.SVG.aim-icon(version="1.1" viewBox="0 0 191 182.2")
+										+e.PATH.aim-icon-path(d="M44.3,84v15.4h38.4v82.8H0V99.4l0,0V84c0-31.2,9-54.4,26.7-68.9C39,5.1,54.5,0,72.8,0v44.3 C62.9,44.3,44.3,44.3,44.3,84z M181.1,44.3V0c-18.4,0-33.9,5.1-46.1,15.1c-17.7,14.5-26.7,37.7-26.7,68.9v15.4l0,0v82.8H191V99.4 h-38.4V84C152.6,44.3,171.1,44.3,181.1,44.3z")
+								+e.P.aim-content
+									|I am proud of every 
+									+e.SPAN.aim-accent project, 
+									|that touched my hands.
+							+e.signature-wrapper
+								+e.signature(src="img/signature.svg")
+						+e.FOOTER.footer
+							+b.BUTTON.vbtn._large._accent.effect._bounce-top(data-action="vmodal" data-open="#form") Download resume
+		+e.part._girl
+			.vcontainer
+				+e.row._reverse.vrow
+					+e.column._image.vak-12.vak-sm-6
+						+e.image-wrapper
+							+e.image(src='img/girl-full.png')
+					+e.column._text.vak-12.vak-sm-6
+						+e.HEADER.header
+							+e.P.name Alina Yaremachenko
+							+e.P.description Web-designer
+						+e.SECTION.body
+							+e.BLOCKQUOTE.aim
+								+e.aim-header
+									+e.SVG.aim-icon(version="1.1" viewBox="0 0 191 182.2")
+										+e.PATH.aim-icon-path(d="M44.3,84v15.4h38.4v82.8H0V99.4l0,0V84c0-31.2,9-54.4,26.7-68.9C39,5.1,54.5,0,72.8,0v44.3 C62.9,44.3,44.3,44.3,44.3,84z M181.1,44.3V0c-18.4,0-33.9,5.1-46.1,15.1c-17.7,14.5-26.7,37.7-26.7,68.9v15.4l0,0v82.8H191V99.4 h-38.4V84C152.6,44.3,171.1,44.3,181.1,44.3z")
+								+e.P.aim-content
+									|Modern 
+									+e.SPAN.aim-accent design, 
+									|is the embodiment of beauty.
+							+e.signature-wrapper
+								+e.signature(src="img/signature.svg")
+						+e.FOOTER.footer
+							+b.BUTTON.vbtn._large._primary.effect._bounce-top(data-action="vmodal" data-open="#form") Download resume
+	//+b.SECTION.about-us
 		+e.container.vcontainer
 			h3.about-us__title.vtitle.vtitle_animation.vtitle_flex.vtitle_flex-around.js-split.text-gradient.text-gradient_primary About
 		+e.part._man
@@ -84,12 +110,167 @@ block content
 							+e.aim-sequel
 								.js-split-word I am cute girl.
 	+b.SECTION.our-skills
+		h3.our-skills__title.vtitle.vtitle_animation.vtitle_flex.vtitle_flex-around.js-split.color-secondary Skills
 		+e.container.vcontainer
-			h3.our-skills__title.vtitle.vtitle_animation.vtitle_flex.vtitle_flex-around.js-split.text-gradient.text-gradient_primary Skills
-	//- +b.SECTION.vsection
-	//- +b.SECTION.vsection
+			+e.P.subtitle Code
+			+e.row.vrow
+				+e.column.vak-12.vak-sm-6.vak-md-4
+					+e.item._bg-js
+						+e.HEADER.item-header
+							+e.item-tech
+								+e.P.item-tech-title JS();
+							+e.item-information
+								+e.P.item-title Javascript &amp; jQuery
+								+e.P.item-description Using for creating animation.
+						+e.SECTION.item-body
+							+e.item-progress
+								+e.item-progress-inner(style="width: 75%")
+									+e.item-progress-inner-percentage 75%
+				+e.column.vak-12.vak-sm-6.vak-md-4
+					+e.item._bg-html
+						+e.HEADER.item-header
+							+e.item-tech
+								+e.P.item-tech-title #{"<"}HTML5#{"/>"}
+							+e.item-information
+								+e.P.item-title HTML5
+								+e.P.item-description Structure website.
+						+e.SECTION.item-body
+							+e.item-progress
+								+e.item-progress-inner(style="width: 95%")
+									+e.item-progress-inner-percentage 95%
+				+e.column.vak-12.vak-sm-6.vak-md-4
+					+e.item._bg-css
+						+e.HEADER.item-header
+							+e.item-tech
+								+e.P.item-tech-title CSS3#{"{}"}
+							+e.item-information
+								+e.P.item-title CSS3
+								+e.P.item-description Styling website.
+						+e.SECTION.item-body
+							+e.item-progress
+								+e.item-progress-inner(style="width: 90%")
+									+e.item-progress-inner-percentage 90%
+				+e.column.vak-12.vak-sm-6.vak-md-4
+					+e.item._bg-php
+						+e.HEADER.item-header
+							+e.item-tech
+								+e.P.item-tech-title #{'<?PHP?>'}
+							+e.item-information
+								+e.P.item-title PHP
+								+e.P.item-description Use for building rich web pages and applications
+						+e.SECTION.item-body
+							+e.item-progress
+								+e.item-progress-inner(style="width: 65%")
+									+e.item-progress-inner-percentage 65%
+				+e.column.vak-12.vak-sm-6.vak-md-4
+					+e.item._bg-wp
+						+e.HEADER.item-header
+							+e.item-tech
+								+e.P.item-tech-title #{'WP'}
+							+e.item-information
+								+e.P.item-title Wordpress
+								+e.P.item-description Ideal platform for publication, focused on beauty.
+						+e.SECTION.item-body
+							+e.item-progress
+								+e.item-progress-inner(style="width: 70%")
+									+e.item-progress-inner-percentage 70%
+				+e.column.vak-12.vak-sm-6.vak-md-4
+					+e.item._bg-angular
+						+e.HEADER.item-header
+							+e.item-tech
+								+e.P.item-tech-title #{'Angular'}
+								+e.P.item-tech-mark In the study
+							+e.item-information
+								+e.P.item-title Angular
+								+e.P.item-description Using for creating Single Page Applications.
+						+e.SECTION.item-body
+							+e.item-progress
+								+e.item-progress-inner(style="width: 15%")
+									+e.item-progress-inner-percentage 15%
+		+e.container.vcontainer
+			+e.P.subtitle Design
+			+e.row.vrow
+				+e.column.vak-12.vak-sm-6.vak-md-4
+					+e.item._bg-ps
+						+e.HEADER.item-header
+							+e.item-tech
+								+e.P.item-tech-title #{'PS'}
+							+e.item-information
+								+e.P.item-title Adobe Photoshop
+								+e.P.item-description Ideal tool for creating a design.
+						+e.SECTION.item-body
+							+e.item-progress
+								+e.item-progress-inner(style="width: 85%")
+									+e.item-progress-inner-percentage 85%
+				+e.column.vak-12.vak-sm-6.vak-md-4
+					+e.item._bg-fw
+						+e.HEADER.item-header
+							+e.item-tech
+								+e.P.item-tech-title #{'FW'}
+							+e.item-information
+								+e.P.item-title FireWorks
+								+e.P.item-description Ideal tool for creating a design.
+						+e.SECTION.item-body
+							+e.item-progress
+								+e.item-progress-inner(style="width: 85%")
+									+e.item-progress-inner-percentage 75%
+				+e.column.vak-12.vak-sm-6.vak-md-4
+					+e.item._bg-ai
+						+e.HEADER.item-header
+							+e.item-tech
+								+e.P.item-tech-title #{'AI'}
+							+e.item-information
+								+e.P.item-title Adobe Illustrator
+								+e.P.item-description Ideal tool for creating a design.
+						+e.SECTION.item-body
+							+e.item-progress
+								+e.item-progress-inner(style="width: 85%")
+									+e.item-progress-inner-percentage 85%
+	+b.SECTION.portfolio
+		h3.portfolio__title.vtitle.vtitle_animation.vtitle_flex.vtitle_flex-around.js-split.color-secondary Works
+		+e.item.flex
+			+e.column._image.vak-12.vak-md-8
+				+e.image(src="img/global-business.jpg")
+			+e.column._info.vak-12.vak-md-4
+				+e.info
+					+e.P.title Kitchen Of Design
+					+e.info-content
+						+e.info-block
+							+e.P.info-block-title About
+							+e.info-block-body
+								p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit delectus culpa dolor, libero voluptatum incidunt?
+						+e.info-block
+							+e.P.info-block-title Project Date
+							+e.info-block-body
+								p 28.09.2017 - 30.09.2017
+						+e.info-block
+							+e.P.info-block-title Tags
+							+e.info-block-body
+								+e.info-tags
+									+e.SPAN.info-tag JS
+									+e.SPAN.info-tag PHP
+									+e.SPAN.info-tag Jquery
+									+e.SPAN.info-tag HTML
+									+e.SPAN.info-tag CSS
 block footer
 
 block dev
-	//script(src="js/lib/particles-connect.js")
-	//+b.BUTTON.vbtn._large._border._border-brand-1 Large button
+	+b.vmodal#form
+		+e.box._default
+			+e.header
+				+e.P.title Contact Us
+				+e.BUTTON.close(data-close="vmodal") &times;
+			+e.body
+				+b.FORM.vform._block(action="mail.php" method="POST")
+					+e.content
+						+e.row._line
+							+b.INPUT.vform-control(type="text" placeholder="Fullname" name="name")
+							+e.SPAN.line
+						+e.row._line
+							+b.INPUT.vform-control(type="text" placeholder="E-mail" name="email")
+							+e.SPAN.line
+						+e.row._line
+							+b.INPUT.vform-control(type="text" placeholder="Phone" name="phone")
+							+e.SPAN.line
+						+e.row._btn
+							+b.BUTTON.vbtn._block._large._primary.effect._bounce-top(type="submit") Send

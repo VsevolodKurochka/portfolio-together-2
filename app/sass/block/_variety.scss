@@ -83,13 +83,12 @@
 			color: #000;
 		}
 		&_light{
-			color: palette('text');
+			//color: palette('text');
 		}
 	}
 
 	&__title{
 		margin-bottom: 30px;
-		color: palette('accent-secondary');
 		font-size: 18px;
 		@extend %variety-text;
 	}

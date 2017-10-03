@@ -12,10 +12,10 @@ $button-map: (
 
 // 1 key - background
 // 2 key - text color
-$button-static: (
-	'white'				: ( setColor('white'), setColor('brand-1') ),
-	'brand-1'			: ( setColor('brand-1'), setColor('white') )
-);
+// $button-static: (
+// 	'white'				: ( setColor('white'), setColor('brand-1') ),
+// 	'brand-1'			: ( setColor('brand-1'), setColor('white') )
+// );
 
 // 1 key - border-color
 // 2 key - text color
@@ -30,6 +30,9 @@ $btn-default-size: 14px;
 // Button large
 $btn-large-padding: 15px 25px;
 $btn-large-size: 18px;
+
+$btn-sm-large-padding: 20px 45px;
+$btn-sm-large-size: 20px;
 
 // Button border
 $btn-border-width: 3px;
@@ -65,11 +68,6 @@ $btn-border-style: solid;
     $button-color: nth($values, 2);
     &_#{$name}{
       @include button-static($button-bg, $button-color);
-      &-simple{
-        &:hover{
-          background-color: darken($button-bg, 15%);
-        }
-      }
     }
   }
 }

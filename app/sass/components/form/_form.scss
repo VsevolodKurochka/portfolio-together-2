@@ -2,6 +2,7 @@
 	$self: &;
 	width: 100%;
 	&__row{
+		position: relative;
 		#{$self}_block &{
 			@include rowOffset();
 		}
@@ -33,18 +34,6 @@
 			@include input-default();
 			border: none;
 		}
-		&__line{
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			height: 1px;
-			width: 0;
-			background-color: $color-modal-main;
-			@include transition();
-		}
-		input:focus + &__line{
-			width: 100%;
-		}
 		&__row_line{
 			&:before{
 				@include pseudo();
@@ -52,7 +41,26 @@
 				bottom: 0;
 				height: 1px;
 				width: 100%;
-				background-color: $color-modal-main;
+				background-color: palette('primary');
+			}
+		}
+		&__line{
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			height: 1px;
+			width: 0;
+			background-color: palette('accent');
+			@include transition();
+		}
+		
+		
+		input:focus + &__line{
+			width: 100%;
+		}
+		@include theme('dark'){
+			&__line{
+				background-color: palette('primary');
 			}
 		}
 		@include resp-min(xs){

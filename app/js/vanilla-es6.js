@@ -147,7 +147,7 @@ function exists(element) {
 		}
 		for (var i = 0; i < modalBtnL; i++) {
 			modalBtn[i].addEventListener('click', function () {
-
+				log(i);
 				// Get button data-attributes
 				var modalData = this.dataset;
 
@@ -160,19 +160,6 @@ function exists(element) {
 
 					addClass(document.body, 'vmodal-open');
 					addClass(modalCurrent, 'vmodal_showing_in');
-
-					if (modalData.video != undefined) {
-						var videoSRC = modalData.video;
-						var videoWrapper = modalCurrent.getElementsByClassName('vmodal__video')[0];
-
-						videoWrapper.innerHTML = '';
-
-						var videoIframe = d.createElement('iframe');
-
-						addClass(videoIframe, 'vmodal__iframe');
-						videoIframe.setAttribute('src', videoSRC);
-						videoWrapper.appendChild(videoIframe);
-					}
 				} else {
 					console.error('No element with ID: ' + modalID);
 				}
@@ -193,11 +180,93 @@ function exists(element) {
 				bodyClick(e);
 			}, false);
 		}
-		// document.body.addEventListener("click", function(e) {
-		// 	bodyClick(e);
-		// }, false);
-		// document.body.addEventListener("touchstart", function(e) {
-		// 	bodyClick(e);
-		// }, false);
+
+		// TYPER
+		var movieType = document.getElementById('movie-type');
+		if (typeof movieType != 'undefined' && movieType != null) {
+			typer('#movie-type').line('Hello!', { speed: 50 }).pause(1500).back('all').continue('What is your mood today?').end(function () {
+				removeClass(document.getElementById('movie-variety'), 'variety_hidden');
+			});
+		}
+
+		// Switch theme
+
+		var body = document.getElementsByTagName('BODY')[0];
+		var movie = document.getElementById('movie');
+		var varietyItems = document.getElementsByClassName('js-variety');
+		var varietyItemsL = varietyItems.length;
+
+		function checkPalette(functionPalette, callback) {
+			addClass(body, functionPalette);
+			if (functionPalette == 'theme-dark') {
+				removeClass(body, 'theme-light');
+			} else if (functionPalette == 'theme-light') {
+				removeClass(body, 'theme-dark');
+			}
+			if (callback && typeof callback === 'function') {
+				callback();
+			}
+		}
+
+		for (var i = 0; i < varietyItemsL; i++) {
+			varietyItems[i].addEventListener('click', function () {
+				var palette = this.dataset.palette;
+				checkPalette(palette, function () {
+					addClass(movie, 'movie_hidden');
+				});
+			});
+		}
+
+		// Title split each letter
+
+		var splitTitles = document.getElementsByClassName('js-split');
+		var splitTitlesL = splitTitles.length;
+
+		for (var i = 0; i < splitTitlesL; i++) {
+
+			// Get current title
+			var singleSplit = splitTitles[i];
+
+			// Cut title's text into array
+			var chars = singleSplit.innerHTML.split('');
+
+			// Get length of array 
+			var charsL = chars.length;
+
+			// Clear title's text
+			singleSplit.innerHTML = '';
+
+			for (var j = 0; j < charsL; j++) {
+				// Write how should look each letter
+				var charsSpan = '<span><span>' + chars[j] + '</span></span>';
+
+				// Add to title this letter
+				singleSplit.innerHTML += charsSpan;
+			}
+		}
+
+		// Split text by words
+
+		var splitText = document.getElementsByClassName('js-split-word');
+		var splitTextL = splitText.length;
+
+		for (var i = 0; i < splitTextL; i++) {
+			var currentEl = splitText[i];
+			var currentElText = currentEl.innerHTML.split(' ');
+			var currentElTextL = currentElText.length;
+			currentEl.innerHTML = '';
+			for (var j = 0; j < currentElTextL; j++) {
+				var word = '<span>' + currentElText[j] + '</span>';
+				currentEl.innerHTML += word;
+			}
+		}
+
+		// Visibility
+
+		function checkVisible(elm) {
+			var rect = elm.getBoundingClientRect();
+			var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+			return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+		}
 	});
 })();

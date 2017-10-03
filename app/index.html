@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html lang="ru">
-
-<head>
-	<title>Main page</title>
-	<meta property="og:title" content="Main page">
-	<meta property="description" content="description">
-	<meta property="og:description" content="description">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-	<meta charset="UTF-8">
-	<link rel="icon" type="image/png">
-	<!--[if lte IE 9]>
+  <head>
+        <title>Main page</title>
+        <meta property="og:title" content="Main page">
+        <meta property="description" content="description">
+        <meta property="og:description" content="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png"><!--[if lte IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<link href="css/style.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Eczar:400,800|Work+Sans:300,400" rel="stylesheet">
-	<!--+connect-script("js/lib/scripts-vanilla.min.js")-->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
-	<script src="js/lib/line-text.js"></script>
-	<!--+connect-script("js/main.js")-->
-	<script src="js/main_vanilla.js"></script>
-	<script src="js/lib/prism.min.js"></script>
-	<script src="js/lib/codeflask.js"></script>
-	<script src="js/lib/codeflask-editor.js"></script>
-</head>
-
-<body class="theme-light">
-	<!--+b.movie#movie
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Tenor+Sans" rel="stylesheet">
+    <!--+connect-script("js/lib/scripts-vanilla.min.js")-->
+    <!--+connect-script("js/main.js")-->
+    <!--+connect-script("js/main_vanilla.js")-->
+        <script src="js/vanilla-es6.js"></script>
+  </head>
+  <body class="theme-light">
+    <!--+b.movie#movie
     +e.text
     	+e.P.title.type-it#movie-type
     	+b.variety._hidden#movie-variety
@@ -42,201 +35,504 @@
     				+e.P.item-title Light Kitchen
     			+e.warning._light Light colors
     -->
-	<!--+b.variety
+    <!--+b.variety
     +e.text
     	+e.P.title
     -->
-	<div class="border">
-		<div class="border__item border__item_top">
-		</div>
-		<div class="border__item border__item_bottom">
-		</div>
-		<div class="border__item border__item_left">
-		</div>
-		<div class="border__item border__item_right">
-		</div>
-	</div>
-	<div class="fixed fixed_bottom">
-		<div class="vnav vnav_style">
-			<div class="vnav__container vcontainer">
-				<div class="vnav__row vrow flex-y-center">
-					<div class="vak-7 vak-md-3">
-						<!--+b.hamburger(type="button" id="js-vnav__btn")
+                <div class="border">
+                                  <div class="border__item border__item_top">
+                                  </div>
+                                  <div class="border__item border__item_bottom">
+                                  </div>
+                                  <div class="border__item border__item_left">
+                                  </div>
+                                  <div class="border__item border__item_right">
+                                  </div>
+                </div>
+                <div class="fixed fixed_bottom">
+                              <div class="vnav vnav_style">
+                                                <div class="vnav__container vcontainer">
+                                                                  <div class="vnav__row vrow flex-y-center">
+                                                                    <div class="vak-7 vak-md-3">
+                                                                      <!--+b.hamburger(type="button" id="js-vnav__btn")
                                                                       +e.SPAN.lines
                                                                       	span
                                                                       	span
                                                                       	span
                                                                       +e.SPAN.text Menu
                                                                       -->
-						<div class="vnav__logo"><a class="vnav__logo-text" href="#">KitchenOfDesign</a>
-						</div>
-					</div>
-					<!--+e.NAV.menu.vak-12.vak-md-6#navigation
+                                                                                      <div class="vnav__logo"><a class="vnav__logo-text" href="#">KitchenOfDesign</a>
+                                                                                      </div>
+                                                                    </div>
+                                                                    <!--+e.NAV.menu.vak-12.vak-md-6#navigation
                                                                     ul
                                                                     	for item in navigation
                                                                     		+menu-item('true', item.link, item.name)
                                                                     	+menu-item
                                                                     		+b.BUTTON.vbtn._navigation(data-func="vmodal" data-content="#vmodalForm" data-id="ModalID" data-title="test") Button
                                                                     -->
-					<div class="vak-5 vak-md-3">
-						<div class="theme-switcher">
-							<div class="theme-switcher__item">
-								<div class="theme-switcher__icon">
-									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 58" xml:space="preserve">
+                                                                    <div class="vak-5 vak-md-3">
+                                                                                  <div class="theme-switcher">
+                                                                                                    <div class="theme-switcher__item">
+                                                                                                                      <div class="theme-switcher__icon">
+                                                                                                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 58" xml:space="preserve">
                                                                                                                           <path d="M54.3,37.8C54.8,35.9,55,34,55,32c0-9.1-4.6-17.4-12.4-22.2c-0.5-0.3-1.1-0.1-1.4,0.3c-0.3,0.5-0.1,1.1,0.3,1.4 C48.7,16,53,23.6,53,32c0,1.7-0.2,3.5-0.6,5.1C52,37.1,51.5,37,51,37c-3.9,0-7,3.1-7,7s3.1,7,7,7s7-3.1,7-7 C58,41.3,56.5,39,54.3,37.8z M51,49c-2.8,0-5-2.2-5-5s2.2-5,5-5s5,2.2,5,5S53.8,49,51,49z"></path>
                                                                                                                           <path d="M38.2,54.2c-2.9,1.2-6,1.8-9.2,1.8c-6.4,0-12.5-2.6-17-7.1c1.2-1.3,2-3,2-4.9c0-3.9-3.1-7-7-7s-7,3.1-7,7s3.1,7,7,7 c1.2,0,2.4-0.3,3.4-0.9C15.3,55.1,22,58,29,58c3.4,0,6.8-0.7,9.9-2c0.5-0.2,0.8-0.8,0.5-1.3C39.3,54.2,38.7,54,38.2,54.2z M2,44 c0-2.8,2.2-5,5-5s5,2.2,5,5s-2.2,5-5,5S2,46.8,2,44z"></path>
                                                                                                                           <path d="M4,31.2C4,31.2,4,31.2,4,31.2c0.6,0,1-0.4,1.1-0.9C5.8,20.2,12.7,11.8,22.3,9c0.9,2.9,3.5,5,6.7,5c3.9,0,7-3.1,7-7 s-3.1-7-7-7c-3.9,0-7,3.1-7,7C11.4,9.9,3.9,19.1,3.1,30.1C3,30.7,3.4,31.2,4,31.2z M29,2c2.8,0,5,2.2,5,5s-2.2,5-5,5s-5-2.2-5-5 S26.2,2,29,2z"></path>
                                                                                                                         </svg>
-								</div>
-								<div class="theme-switcher__text theme-switcher__text_light js-variety" data-palette="theme-light">Light Kitchen
-								</div>
-								<div class="theme-switcher__text theme-switcher__text_dark js-variety" data-palette="theme-dark">Dark Kitchen
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="site" id="page">
-		<div class="site-content" id="content">
-			<section class="intro">
-				<div class="intro__element intro__element_1">
-				</div>
-				<div class="intro__element intro__element_2">
-				</div>
-				<div class="intro__element intro__element_3">
-				</div>
-				<!--+e.particles#particles-js-->
-				<div class="vcontainer">
-					<div class="vrow min-sm-y-center">
-						<div class="vak-12 vak-md-6">
-							<div class="intro__company-name" id="company-name">
-							</div>
-							<h2 class="intro__description vtitle-small light">Creativity &amp; professionalism
-							</h2>
-						</div>
-						<div class="vak-12 vak-md-6">
-							<div class="code">
-								<div class="code__header">
-									<p class="code__title">Don't be shy
-									</p>
-									<p class="code__description">(you can change everything)
-									</p>
-								</div>
-								<div class="code__nav">
-									<div class="code__nav-act-wrap">
-										<div class="code__nav-act code__nav-act_close">
-										</div>
-										<div class="code__nav-act code__nav-act_expand">
-										</div>
-										<div class="code__nav-act code__nav-act_turn">
-										</div>
-									</div>
-									<h1 class="code__nav-title">Kitchen Of Design.js
-									</h1>
-								</div>
-								<div class="code__content" id="code">
-								</div>
-							</div>
-							<script>
-								if (document.body.clientWidth >= 1025)
-								{
-									var styleTag = document.createElement("STYLE"),
-										flask = new CodeFlask;
-
-									document.querySelector('head').appendChild(styleTag);
-
-									flask.run('#code',
-									{
-										language: 'css',
-										lineNumbers: false
-									});
-
-									flask.onUpdate(function(code)
-									{
-										styleTag.innerHTML = code;
-									});
-
-									flask.update(
-										"// Feel free to play with the code. :)\n" +
-										".code__title {\n color: white;\n text-align: center;\n text-transform: uppercase;\n}\n" +
-										".text-copy:nth-child(1) {\n stroke: #F5C700;\n stroke-dashoffset: 10%;\n}\n" +
-										".text-copy:nth-child(2) {\n stroke: #D61C59;\n stroke-dashoffset: 20%;\n}\n"
-									);
-								}
-
-							</script>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="about-us">
-				<div class="about-us__container vcontainer">
-					<h3 class="about-us__title vtitle vtitle_animation vtitle_flex vtitle_flex-around js-split text-gradient text-gradient_primary">About</h3>
-				</div>
-				<div class="about-us__part about-us__part_man">
-					<div class="about-us__part-container vcontainer">
-						<div class="about-us__row vrow">
-							<div class="vak-12 vak-sm-6 text-center">
-								<div class="about-us__header">
-									<div class="about-us__window about-us__window_man">
-									</div>
-									<p class="about-us__name">Vsevolod Kurochka
-									</p>
-									<p class="about-us__description">Web-developer
-									</p>
-								</div>
-							</div>
-							<div class="vak-12 vak-sm-6">
-								<div class="about-us__body">
-									<p class="about-us__aim">
-										I am proud of every <span class="regular color-white">project, </span>that touched my hands.
-									</p>
-									<div class="about-us__aim-sequel">
-										<div class="js-split-word">Only by investing effort and soul will you get a quality product.</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="about-us__part about-us__part_girl">
-					<div class="about-us__part-container vcontainer">
-						<div class="about-us__row about-us__row_reverse vrow">
-							<div class="vak-12 vak-sm-6 text-center">
-								<div class="about-us__header">
-									<div class="about-us__window about-us__window_girl">
-									</div>
-									<p class="about-us__name">Alina Yaremachenko
-									</p>
-									<p class="about-us__description">Web-designer
-									</p>
-								</div>
-							</div>
-							<div class="vak-12 vak-sm-6">
-								<div class="about-us__body">
-									<p class="about-us__aim">Modern <span class="regular color-white">design </span>is the embodiment of beauty.
-									</p>
-									<div class="about-us__aim-sequel">
-										<div class="js-split-word">I am cute girl.</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="our-skills">
-				<div class="our-skills__container vcontainer">
-					<h3 class="our-skills__title vtitle vtitle_animation vtitle_flex vtitle_flex-around js-split text-gradient text-gradient_primary">Skills</h3>
-				</div>
-			</section>
-		</div>
-	</div>
-	<!--script(src="js/lib/particles-connect.js")-->
-	<!--+b.BUTTON.vbtn._large._border._border-brand-1 Large button-->
-</body>
-
+                                                                                                                      </div>
+                                                                                                                      <div class="theme-switcher__text theme-switcher__text_light js-variety" data-palette="theme-light">Light Kitchen
+                                                                                                                      </div>
+                                                                                                                      <div class="theme-switcher__text theme-switcher__text_dark js-variety" data-palette="theme-dark">Dark Kitchen
+                                                                                                                      </div>
+                                                                                                    </div>
+                                                                                  </div>
+                                                                    </div>
+                                                                  </div>
+                                                </div>
+                              </div>
+                </div>
+    <div class="site" id="page">
+      <div class="site-content" id="content">
+                    <section class="intro">
+                                      <div class="intro__element intro__element_1">
+                                      </div>
+                                      <div class="intro__element intro__element_2">
+                                      </div>
+                                      <div class="intro__element intro__element_3">
+                                      </div>
+                      <!--+e.particles#particles-js-->
+                      <div class="vcontainer">
+                                        <p class="intro__greeting">Hello, we are
+                                        </p>
+                                        <div class="intro__company-name-wrapper">
+                                                          <h1 class="intro__company-name intro__company-name_below">Kitchen<span class="intro__company-name-element">&amp;</span>Design
+                                                          </h1>
+                                                          <p class="intro__company-name intro__company-name_over">Kitchen<span class="intro__company-name-element">&amp;</span>Design
+                                                          </p>
+                                        </div>
+                                        <div class="intro__description-wrapper">
+                                                          <h2 class="intro__description">How to create a selling company website?
+                                                          </h2>
+                                                          <p class="intro__description intro__description_light">We will help you with this.
+                                                          </p>
+                                        </div>
+                                        <div class="intro__button-wrapper">
+                                                      <button class="vbtn vbtn_large vbtn_primary effect effect_bounce-top" data-action="vmodal" data-open="#form">Let's start a new project
+                                                      </button>
+                                        </div>
+                      </div>
+                    </section>
+                    <section class="about-us">
+                      <h3 class="about-us__title vtitle vtitle_animation vtitle_flex vtitle_flex-around js-split color-secondary">About</h3>
+                      <!--+b.group.left.top+e.H3.title About Us
+                      -->
+                                      <div class="about-us__part about-us__part_man">
+                                        <div class="vcontainer">
+                                                          <div class="about-us__row vrow">
+                                                                            <div class="about-us__column about-us__column_image vak-12 vak-sm-6">
+                                                                                              <div class="about-us__image-wrapper"><img class="about-us__image" src="img/man-full.png" alt="" role="presentation"/>
+                                                                                              </div>
+                                                                            </div>
+                                                                            <div class="about-us__column about-us__column_text vak-12 vak-sm-6">
+                                                                                              <header class="about-us__header">
+                                                                                                                <p class="about-us__name">Vsevolod Kurochka
+                                                                                                                </p>
+                                                                                                                <p class="about-us__description">Web-developer
+                                                                                                                </p>
+                                                                                              </header>
+                                                                                              <section class="about-us__body">
+                                                                                                                <blockquote class="about-us__aim">
+                                                                                                                                  <div class="about-us__aim-header">
+                                                                                                                                                    <svg class="about-us__aim-icon" version="1.1" viewBox="0 0 191 182.2">
+                                                                                                                                                                      <path class="about-us__aim-icon-path" d="M44.3,84v15.4h38.4v82.8H0V99.4l0,0V84c0-31.2,9-54.4,26.7-68.9C39,5.1,54.5,0,72.8,0v44.3 C62.9,44.3,44.3,44.3,44.3,84z M181.1,44.3V0c-18.4,0-33.9,5.1-46.1,15.1c-17.7,14.5-26.7,37.7-26.7,68.9v15.4l0,0v82.8H191V99.4 h-38.4V84C152.6,44.3,171.1,44.3,181.1,44.3z">
+                                                                                                                                                                      </path>
+                                                                                                                                                    </svg>
+                                                                                                                                  </div>
+                                                                                                                                  <p class="about-us__aim-content">I am proud of every <span class="about-us__aim-accent">project, </span>that touched my hands.
+                                                                                                                                  </p>
+                                                                                                                </blockquote>
+                                                                                                                <div class="about-us__signature-wrapper"><img class="about-us__signature" src="img/signature.svg" alt="" role="presentation"/>
+                                                                                                                </div>
+                                                                                              </section>
+                                                                                              <footer class="about-us__footer">
+                                                                                                            <button class="vbtn vbtn_large vbtn_accent effect effect_bounce-top" data-action="vmodal" data-open="#form">Download resume
+                                                                                                            </button>
+                                                                                              </footer>
+                                                                            </div>
+                                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="about-us__part about-us__part_girl">
+                                        <div class="vcontainer">
+                                                          <div class="about-us__row about-us__row_reverse vrow">
+                                                                            <div class="about-us__column about-us__column_image vak-12 vak-sm-6">
+                                                                                              <div class="about-us__image-wrapper"><img class="about-us__image" src="img/girl-full.png" alt="" role="presentation"/>
+                                                                                              </div>
+                                                                            </div>
+                                                                            <div class="about-us__column about-us__column_text vak-12 vak-sm-6">
+                                                                                              <header class="about-us__header">
+                                                                                                                <p class="about-us__name">Alina Yaremachenko
+                                                                                                                </p>
+                                                                                                                <p class="about-us__description">Web-designer
+                                                                                                                </p>
+                                                                                              </header>
+                                                                                              <section class="about-us__body">
+                                                                                                                <blockquote class="about-us__aim">
+                                                                                                                                  <div class="about-us__aim-header">
+                                                                                                                                                    <svg class="about-us__aim-icon" version="1.1" viewBox="0 0 191 182.2">
+                                                                                                                                                                      <path class="about-us__aim-icon-path" d="M44.3,84v15.4h38.4v82.8H0V99.4l0,0V84c0-31.2,9-54.4,26.7-68.9C39,5.1,54.5,0,72.8,0v44.3 C62.9,44.3,44.3,44.3,44.3,84z M181.1,44.3V0c-18.4,0-33.9,5.1-46.1,15.1c-17.7,14.5-26.7,37.7-26.7,68.9v15.4l0,0v82.8H191V99.4 h-38.4V84C152.6,44.3,171.1,44.3,181.1,44.3z">
+                                                                                                                                                                      </path>
+                                                                                                                                                    </svg>
+                                                                                                                                  </div>
+                                                                                                                                  <p class="about-us__aim-content">Modern <span class="about-us__aim-accent">design, </span>is the embodiment of beauty.
+                                                                                                                                  </p>
+                                                                                                                </blockquote>
+                                                                                                                <div class="about-us__signature-wrapper"><img class="about-us__signature" src="img/signature.svg" alt="" role="presentation"/>
+                                                                                                                </div>
+                                                                                              </section>
+                                                                                              <footer class="about-us__footer">
+                                                                                                            <button class="vbtn vbtn_large vbtn_primary effect effect_bounce-top" data-action="vmodal" data-open="#form">Download resume
+                                                                                                            </button>
+                                                                                              </footer>
+                                                                            </div>
+                                                          </div>
+                                        </div>
+                                      </div>
+                    </section>
+        <!--+b.SECTION.about-us
+        +e.container.vcontainer
+        	h3.about-us__title.vtitle.vtitle_animation.vtitle_flex.vtitle_flex-around.js-split.text-gradient.text-gradient_primary About
+        +e.part._man
+        	+e.part-container.vcontainer
+        		+e.row.vrow
+        			.vak-12.vak-sm-6.text-center
+        				+e.header
+        					+e.window._man
+        					+e.P.name Vsevolod Kurochka
+        					+e.P.description Web-developer
+        			.vak-12.vak-sm-6
+        				+e.body
+        					+e.P.aim 
+        						|I am proud of every 
+        						span.regular.color-white project, 
+        						|that touched my hands.
+        					+e.aim-sequel
+        						.js-split-word Only by investing effort and soul will you get a quality product.
+        +e.part._girl
+        	+e.part-container.vcontainer
+        		+e.row._reverse.vrow
+        			.vak-12.vak-sm-6.text-center
+        				+e.header
+        					+e.window._girl
+        					+e.P.name Alina Yaremachenko
+        					+e.P.description Web-designer
+        			.vak-12.vak-sm-6
+        				+e.body
+        					+e.P.aim
+        						|Modern 
+        						span.regular.color-white design 
+        						|is the embodiment of beauty.
+        					+e.aim-sequel
+        						.js-split-word I am cute girl.
+        -->
+                    <section class="our-skills">
+                      <h3 class="our-skills__title vtitle vtitle_animation vtitle_flex vtitle_flex-around js-split color-secondary">Skills</h3>
+                                      <div class="our-skills__container vcontainer">
+                                                        <p class="our-skills__subtitle">Code
+                                                        </p>
+                                                        <div class="our-skills__row vrow">
+                                                                          <div class="our-skills__column vak-12 vak-sm-6 vak-md-4">
+                                                                                            <div class="our-skills__item our-skills__item_bg-js">
+                                                                                                              <header class="our-skills__item-header">
+                                                                                                                                <div class="our-skills__item-tech">
+                                                                                                                                                  <p class="our-skills__item-tech-title">JS();
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                                                <div class="our-skills__item-information">
+                                                                                                                                                  <p class="our-skills__item-title">Javascript &amp; jQuery
+                                                                                                                                                  </p>
+                                                                                                                                                  <p class="our-skills__item-description">Using for creating animation.
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                              </header>
+                                                                                                              <section class="our-skills__item-body">
+                                                                                                                                <div class="our-skills__item-progress">
+                                                                                                                                                  <div class="our-skills__item-progress-inner" style="width: 75%;">
+                                                                                                                                                                    <div class="our-skills__item-progress-inner-percentage">75%
+                                                                                                                                                                    </div>
+                                                                                                                                                  </div>
+                                                                                                                                </div>
+                                                                                                              </section>
+                                                                                            </div>
+                                                                          </div>
+                                                                          <div class="our-skills__column vak-12 vak-sm-6 vak-md-4">
+                                                                                            <div class="our-skills__item our-skills__item_bg-html">
+                                                                                                              <header class="our-skills__item-header">
+                                                                                                                                <div class="our-skills__item-tech">
+                                                                                                                                                  <p class="our-skills__item-tech-title">&lt;HTML5/&gt;
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                                                <div class="our-skills__item-information">
+                                                                                                                                                  <p class="our-skills__item-title">HTML5
+                                                                                                                                                  </p>
+                                                                                                                                                  <p class="our-skills__item-description">Structure website.
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                              </header>
+                                                                                                              <section class="our-skills__item-body">
+                                                                                                                                <div class="our-skills__item-progress">
+                                                                                                                                                  <div class="our-skills__item-progress-inner" style="width: 95%;">
+                                                                                                                                                                    <div class="our-skills__item-progress-inner-percentage">95%
+                                                                                                                                                                    </div>
+                                                                                                                                                  </div>
+                                                                                                                                </div>
+                                                                                                              </section>
+                                                                                            </div>
+                                                                          </div>
+                                                                          <div class="our-skills__column vak-12 vak-sm-6 vak-md-4">
+                                                                                            <div class="our-skills__item our-skills__item_bg-css">
+                                                                                                              <header class="our-skills__item-header">
+                                                                                                                                <div class="our-skills__item-tech">
+                                                                                                                                                  <p class="our-skills__item-tech-title">CSS3{}
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                                                <div class="our-skills__item-information">
+                                                                                                                                                  <p class="our-skills__item-title">CSS3
+                                                                                                                                                  </p>
+                                                                                                                                                  <p class="our-skills__item-description">Styling website.
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                              </header>
+                                                                                                              <section class="our-skills__item-body">
+                                                                                                                                <div class="our-skills__item-progress">
+                                                                                                                                                  <div class="our-skills__item-progress-inner" style="width: 90%;">
+                                                                                                                                                                    <div class="our-skills__item-progress-inner-percentage">90%
+                                                                                                                                                                    </div>
+                                                                                                                                                  </div>
+                                                                                                                                </div>
+                                                                                                              </section>
+                                                                                            </div>
+                                                                          </div>
+                                                                          <div class="our-skills__column vak-12 vak-sm-6 vak-md-4">
+                                                                                            <div class="our-skills__item our-skills__item_bg-php">
+                                                                                                              <header class="our-skills__item-header">
+                                                                                                                                <div class="our-skills__item-tech">
+                                                                                                                                                  <p class="our-skills__item-tech-title">&lt;?PHP?&gt;
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                                                <div class="our-skills__item-information">
+                                                                                                                                                  <p class="our-skills__item-title">PHP
+                                                                                                                                                  </p>
+                                                                                                                                                  <p class="our-skills__item-description">Use for building rich web pages and applications
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                              </header>
+                                                                                                              <section class="our-skills__item-body">
+                                                                                                                                <div class="our-skills__item-progress">
+                                                                                                                                                  <div class="our-skills__item-progress-inner" style="width: 65%;">
+                                                                                                                                                                    <div class="our-skills__item-progress-inner-percentage">65%
+                                                                                                                                                                    </div>
+                                                                                                                                                  </div>
+                                                                                                                                </div>
+                                                                                                              </section>
+                                                                                            </div>
+                                                                          </div>
+                                                                          <div class="our-skills__column vak-12 vak-sm-6 vak-md-4">
+                                                                                            <div class="our-skills__item our-skills__item_bg-wp">
+                                                                                                              <header class="our-skills__item-header">
+                                                                                                                                <div class="our-skills__item-tech">
+                                                                                                                                                  <p class="our-skills__item-tech-title">WP
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                                                <div class="our-skills__item-information">
+                                                                                                                                                  <p class="our-skills__item-title">Wordpress
+                                                                                                                                                  </p>
+                                                                                                                                                  <p class="our-skills__item-description">Ideal platform for publication, focused on beauty.
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                              </header>
+                                                                                                              <section class="our-skills__item-body">
+                                                                                                                                <div class="our-skills__item-progress">
+                                                                                                                                                  <div class="our-skills__item-progress-inner" style="width: 70%;">
+                                                                                                                                                                    <div class="our-skills__item-progress-inner-percentage">70%
+                                                                                                                                                                    </div>
+                                                                                                                                                  </div>
+                                                                                                                                </div>
+                                                                                                              </section>
+                                                                                            </div>
+                                                                          </div>
+                                                                          <div class="our-skills__column vak-12 vak-sm-6 vak-md-4">
+                                                                                            <div class="our-skills__item our-skills__item_bg-angular">
+                                                                                                              <header class="our-skills__item-header">
+                                                                                                                                <div class="our-skills__item-tech">
+                                                                                                                                                  <p class="our-skills__item-tech-title">Angular
+                                                                                                                                                  </p>
+                                                                                                                                                  <p class="our-skills__item-tech-mark">In the study
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                                                <div class="our-skills__item-information">
+                                                                                                                                                  <p class="our-skills__item-title">Angular
+                                                                                                                                                  </p>
+                                                                                                                                                  <p class="our-skills__item-description">Using for creating Single Page Applications.
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                              </header>
+                                                                                                              <section class="our-skills__item-body">
+                                                                                                                                <div class="our-skills__item-progress">
+                                                                                                                                                  <div class="our-skills__item-progress-inner" style="width: 15%;">
+                                                                                                                                                                    <div class="our-skills__item-progress-inner-percentage">15%
+                                                                                                                                                                    </div>
+                                                                                                                                                  </div>
+                                                                                                                                </div>
+                                                                                                              </section>
+                                                                                            </div>
+                                                                          </div>
+                                                        </div>
+                                      </div>
+                                      <div class="our-skills__container vcontainer">
+                                                        <p class="our-skills__subtitle">Design
+                                                        </p>
+                                                        <div class="our-skills__row vrow">
+                                                                          <div class="our-skills__column vak-12 vak-sm-6 vak-md-4">
+                                                                                            <div class="our-skills__item our-skills__item_bg-ps">
+                                                                                                              <header class="our-skills__item-header">
+                                                                                                                                <div class="our-skills__item-tech">
+                                                                                                                                                  <p class="our-skills__item-tech-title">PS
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                                                <div class="our-skills__item-information">
+                                                                                                                                                  <p class="our-skills__item-title">Adobe Photoshop
+                                                                                                                                                  </p>
+                                                                                                                                                  <p class="our-skills__item-description">Ideal tool for creating a design.
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                              </header>
+                                                                                                              <section class="our-skills__item-body">
+                                                                                                                                <div class="our-skills__item-progress">
+                                                                                                                                                  <div class="our-skills__item-progress-inner" style="width: 85%;">
+                                                                                                                                                                    <div class="our-skills__item-progress-inner-percentage">85%
+                                                                                                                                                                    </div>
+                                                                                                                                                  </div>
+                                                                                                                                </div>
+                                                                                                              </section>
+                                                                                            </div>
+                                                                          </div>
+                                                                          <div class="our-skills__column vak-12 vak-sm-6 vak-md-4">
+                                                                                            <div class="our-skills__item our-skills__item_bg-fw">
+                                                                                                              <header class="our-skills__item-header">
+                                                                                                                                <div class="our-skills__item-tech">
+                                                                                                                                                  <p class="our-skills__item-tech-title">FW
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                                                <div class="our-skills__item-information">
+                                                                                                                                                  <p class="our-skills__item-title">FireWorks
+                                                                                                                                                  </p>
+                                                                                                                                                  <p class="our-skills__item-description">Ideal tool for creating a design.
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                              </header>
+                                                                                                              <section class="our-skills__item-body">
+                                                                                                                                <div class="our-skills__item-progress">
+                                                                                                                                                  <div class="our-skills__item-progress-inner" style="width: 85%;">
+                                                                                                                                                                    <div class="our-skills__item-progress-inner-percentage">75%
+                                                                                                                                                                    </div>
+                                                                                                                                                  </div>
+                                                                                                                                </div>
+                                                                                                              </section>
+                                                                                            </div>
+                                                                          </div>
+                                                                          <div class="our-skills__column vak-12 vak-sm-6 vak-md-4">
+                                                                                            <div class="our-skills__item our-skills__item_bg-ai">
+                                                                                                              <header class="our-skills__item-header">
+                                                                                                                                <div class="our-skills__item-tech">
+                                                                                                                                                  <p class="our-skills__item-tech-title">AI
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                                                <div class="our-skills__item-information">
+                                                                                                                                                  <p class="our-skills__item-title">Adobe Illustrator
+                                                                                                                                                  </p>
+                                                                                                                                                  <p class="our-skills__item-description">Ideal tool for creating a design.
+                                                                                                                                                  </p>
+                                                                                                                                </div>
+                                                                                                              </header>
+                                                                                                              <section class="our-skills__item-body">
+                                                                                                                                <div class="our-skills__item-progress">
+                                                                                                                                                  <div class="our-skills__item-progress-inner" style="width: 85%;">
+                                                                                                                                                                    <div class="our-skills__item-progress-inner-percentage">85%
+                                                                                                                                                                    </div>
+                                                                                                                                                  </div>
+                                                                                                                                </div>
+                                                                                                              </section>
+                                                                                            </div>
+                                                                          </div>
+                                                        </div>
+                                      </div>
+                    </section>
+                    <section class="portfolio">
+                      <h3 class="portfolio__title vtitle vtitle_animation vtitle_flex vtitle_flex-around js-split color-secondary">Works</h3>
+                                      <div class="portfolio__item flex">
+                                                        <div class="portfolio__column portfolio__column_image vak-12 vak-md-8"><img class="portfolio__image" src="img/global-business.jpg" alt="" role="presentation"/>
+                                                        </div>
+                                                        <div class="portfolio__column portfolio__column_info vak-12 vak-md-4">
+                                                                          <div class="portfolio__info">
+                                                                                            <p class="portfolio__title">Kitchen Of Design
+                                                                                            </p>
+                                                                                            <div class="portfolio__info-content">
+                                                                                                              <div class="portfolio__info-block">
+                                                                                                                                <p class="portfolio__info-block-title">About
+                                                                                                                                </p>
+                                                                                                                                <div class="portfolio__info-block-body">
+                                                                                                                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit delectus culpa dolor, libero voluptatum incidunt?</p>
+                                                                                                                                </div>
+                                                                                                              </div>
+                                                                                                              <div class="portfolio__info-block">
+                                                                                                                                <p class="portfolio__info-block-title">Project Date
+                                                                                                                                </p>
+                                                                                                                                <div class="portfolio__info-block-body">
+                                                                                                                                  <p>28.09.2017 - 30.09.2017</p>
+                                                                                                                                </div>
+                                                                                                              </div>
+                                                                                                              <div class="portfolio__info-block">
+                                                                                                                                <p class="portfolio__info-block-title">Tags
+                                                                                                                                </p>
+                                                                                                                                <div class="portfolio__info-block-body">
+                                                                                                                                                  <div class="portfolio__info-tags"><span class="portfolio__info-tag">JS</span><span class="portfolio__info-tag">PHP</span><span class="portfolio__info-tag">Jquery</span><span class="portfolio__info-tag">HTML</span><span class="portfolio__info-tag">CSS</span>
+                                                                                                                                                  </div>
+                                                                                                                                </div>
+                                                                                                              </div>
+                                                                                            </div>
+                                                                          </div>
+                                                        </div>
+                                      </div>
+                    </section>
+      </div>
+    </div>
+                <div class="vmodal" id="form">
+                                  <div class="vmodal__box vmodal__box_default">
+                                                    <div class="vmodal__header">
+                                                                      <p class="vmodal__title">Contact Us
+                                                                      </p>
+                                                                      <button class="vmodal__close" data-close="vmodal">&times;
+                                                                      </button>
+                                                    </div>
+                                                    <div class="vmodal__body">
+                                                                  <form class="vform vform_block" action="mail.php" method="POST">
+                                                                                    <div class="vform__content">
+                                                                                                      <div class="vform__row vform__row_line"><input class="vform-control" type="text" placeholder="Fullname" name="name"/><span class="vform__line"></span>
+                                                                                                      </div>
+                                                                                                      <div class="vform__row vform__row_line"><input class="vform-control" type="text" placeholder="E-mail" name="email"/><span class="vform__line"></span>
+                                                                                                      </div>
+                                                                                                      <div class="vform__row vform__row_line"><input class="vform-control" type="text" placeholder="Phone" name="phone"/><span class="vform__line"></span>
+                                                                                                      </div>
+                                                                                                      <div class="vform__row vform__row_btn">
+                                                                                                                    <button class="vbtn vbtn_block vbtn_large vbtn_primary effect effect_bounce-top" type="submit">Send
+                                                                                                                    </button>
+                                                                                                      </div>
+                                                                                    </div>
+                                                                  </form>
+                                                    </div>
+                                  </div>
+                </div>
+  </body>
 </html>

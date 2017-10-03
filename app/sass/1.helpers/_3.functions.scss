@@ -16,7 +16,7 @@
   @if map-has-key($scheme-variaty, $color){
   	@return map-get($scheme-variaty, $color);
   }@else{
-  	@error 'No color.';
+  	@error 'No color.' + $color;
   }
   
 }
