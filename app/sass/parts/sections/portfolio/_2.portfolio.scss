@@ -1,0 +1,19 @@
+.#{$portfolio}{
+	padding-top: 75px;
+	padding-bottom: 75px;
+	overflow: hidden;
+	background-color: palette('accent-secondary');
+	&__title{
+		margin-bottom: 45px;
+		//text-shadow: longshadow( palette('accent-secondary'), #fff, 10, 0.1);
+	}
+	&__button{
+		&-wrapper{
+			margin-top: 45px;
+			text-align: center;
+			@include resp-min(sm){
+				margin-top: 75px;
+			}
+		}
+	}
+}

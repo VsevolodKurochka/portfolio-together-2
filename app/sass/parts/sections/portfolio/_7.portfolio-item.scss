@@ -1,0 +1,37 @@
+.#{$portfolio}{
+	&__item{
+		$item: &;
+		position: relative;
+		&-image{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: all ease 5s;
+		}
+		@include resp-max(sm){
+			max-width: 400px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 30px;
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+		@include resp-min(sm){
+			margin-bottom: 75px;
+			flex-direction: row-reverse;
+			&:before{
+				@include pseudo();
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+			&:hover &{
+				&-image{
+					transform: scale(1.2);
+				}
+			}
+		}
+	}
+}

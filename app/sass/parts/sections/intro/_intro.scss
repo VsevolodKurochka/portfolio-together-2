@@ -1,3 +1,5 @@
+
+
 .intro{
 	position: relative;
 	padding-top: 75px;
@@ -6,18 +8,51 @@
 	z-index: 1;
 	text-align: left;
 	color: setColor('white');
+	overflow: hidden;
 	//background-color: transparentize(palette('secondary'), 0.9);
-	background-color: palette('accent');
+	//background-color: palette('accent');
 	//@include bg('../img/programming.jpg');
-	&:before{
-		@include pseudo();
-		left: 10%;
+	// &:before{
+	// 	@include pseudo();
+	// 	left: 10%;
+	// 	top: 0;
+	// 	width: 150%;
+	// 	height: 150%;
+	// 	background-color: transparentize(palette('accent-secondary'), 0.8);
+	// 	z-index: -1;
+	// 	transform: rotate(-45deg);
+	// }
+	&__animation{
+		position: absolute;
+		left: 0;
 		top: 0;
-		width: 150%;
-		height: 150%;
-		background-color: transparentize(palette('accent-secondary'), 0.8);
-		z-index: -1;
-		transform: rotate(-45deg);
+		width: 100%;
+		height: 100%;
+		background: #282886;
+	}
+	&__svg{
+		height: 100%;
+		path:first-child {
+			fill: #4f4fea;
+		}
+		path:nth-child(2) {
+			fill: #0c27cf;
+		}
+		path:nth-child(3) {
+			fill: palette('accent');
+		}
+		path:nth-child(4) {
+			fill: #242468;
+		}
+		path:nth-child(5) {
+			fill: #2648e6;
+		}
+		path:nth-child(6) {
+			fill: #2c31b0;
+		}
+		path:nth-child(7) {
+			fill: #262689;
+		}
 	}
 	&__element{
 		position: absolute;
@@ -58,11 +93,17 @@
 		}
 	}
 	&__greeting{
+		margin-bottom: 10px;
+		font-size: 30px;
 		font-weight: bold;
 		font-family: 'Archivo Black', serif;
 		//color: palette('accent');
+		@include resp-min(sm){
+			font-size: 45px;
+		}
 		@include resp-min(md){
 			font-size: 60px;
+			margin-bottom: 0;
 		}
 	}
 	&__description{
@@ -79,6 +120,7 @@
 		}
 	}
 	&__company-name{
+		font-size: 50px;
 		line-height: 1;
 		text-transform: uppercase;
 		color: palette('primary');
@@ -86,10 +128,10 @@
 		@extend .secondary-font;
 		&_over{
 			position: absolute;
-			left: -5px;
+			left: -10px;
 			top: -5px;
 			width: 100%;
-			height: 55px;
+			height: 80px;
 			overflow: hidden;
 			user-select: none;
 			transform: rotate(-2deg);
@@ -102,9 +144,27 @@
 			position: relative;
 		}
 		&-element{
+			position: relative;
+			top: 15px;
 			color: palette('light');
 		}
 		
+	}
+	@include resp-max(xs){
+		&__company-name{
+			&-element{
+				display: block;
+			}
+		}
+	}
+	@include resp-min(xs){
+		&__company-name{
+			&_over{
+				left: -5px;
+				top: -5px;
+				height: 55px;
+			}
+		}
 	}
 	@include resp-min(sm){
 		padding-top: 100px;

@@ -1,77 +1,85 @@
 %button-placeholder{
-  display: inline-block;
-  position: relative;
-  @include button-size($btn-default-padding, $btn-default-size);
-  border: getComp('border', $button-map);
-  border-radius: getComp('radius', $button-map);
-  z-index: z('default');
-  overflow: hidden;
-  max-width: 100%;
-  background-color: transparent;
-  text-decoration: none;
-  font-size: getComp('font-size', $button-map);
-  line-height: getComp('line-height', $button-map);
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
-  transform: translateZ(0);
-  @include transition();
-  @extend .bold !optional;
+	display: inline-block;
+	position: relative;
+	@include button-size($btn-default-padding, $btn-default-size);
+	border: getComp('border', $button-map);
+	border-radius: getComp('radius', $button-map);
+	z-index: z('default');
+	overflow: hidden;
+	max-width: 100%;
+	background-color: transparent;
+	text-decoration: none;
+	font-size: getComp('font-size', $button-map);
+	line-height: getComp('line-height', $button-map);
+	-webkit-tap-highlight-color: transparent;
+	outline: none;
+	transform: translateZ(0);
+	@include transition();
+	@extend .bold !optional;
 }
 .#{getComp('name', $button-map)} {
-  @extend %button-placeholder;
-  &_large{
-    @include button-size($btn-large-padding, $btn-large-size);
-    @include resp-min(sm){
-      @include button-size($btn-sm-large-padding, $btn-sm-large-size);
-    }
-  }
-  &_block{
-    display: block;
-    width: 100%;
-    text-align: center;
-  }
-  // &_navigation{
-  //   background-color: setColor('menu', 'light');
-  //   @include resp-max(md){
-  //     padding: 15px;
-  //     width: 100%;
-  //     font-size: 18px;
-  //     text-align: left;
-  //   }
-  //   @include resp-min(md){
-  //     background-color: setColor('brand-1');
-  //   }
-  // }
-  &_primary{
-    @include button-static(palette('primary'), setColor('white'));
-    box-shadow: 10px 10px 0px lighten(palette('primary'), 25%);
-    &:hover{
-      box-shadow: 5px 5px 0px lighten(palette('primary'), 25%);
-    }
-  }
-  &_accent{
-    @include button-static(palette('accent'), setColor('white'));
-    box-shadow: 10px 10px 0px lighten(palette('accent'), 25%);
-    &:hover{
-      box-shadow: 5px 5px 0px lighten(palette('accent'), 25%);
-    }
-  }
-  &_accent-secondary{
-    @include button-static(palette('accent-secondary'), setColor('white'));
-    box-shadow: 10px 10px 0px lighten(palette('accent-secondary'), 25%);
-    &:hover{
-      box-shadow: 5px 5px 0px lighten(palette('accent-secondary'), 25%);
-    }
-  }
+	@extend %button-placeholder;
+	&_large{
+		@include button-size($btn-large-padding, $btn-large-size);
+		@include resp-min(sm){
+			@include button-size($btn-sm-large-padding, $btn-sm-large-size);
+		}
+	}
+	&_block{
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+	// &_navigation{
+	//   background-color: setColor('menu', 'light');
+	//   @include resp-max(md){
+	//     padding: 15px;
+	//     width: 100%;
+	//     font-size: 18px;
+	//     text-align: left;
+	//   }
+	//   @include resp-min(md){
+	//     background-color: setColor('brand-1');
+	//   }
+	// }
+	// &_primary{
+	// 	@include button-static(palette('primary'), setColor('white'));
+	// 	box-shadow: 10px 10px 0px lighten(palette('primary'), 25%);
+	// 	&:hover{
+	// 		box-shadow: 5px 5px 0px lighten(palette('primary'), 25%);
+	// 	}
+	// }
+	// &_secondary{
+	// 	@include button-static(palette('secondary'), setColor('white'));
+	// 	box-shadow: 10px 10px 0px lighten(palette('secondary'), 25%);
+	// 	&:hover{
+	// 		box-shadow: 5px 5px 0px lighten(palette('secondary'), 25%);
+	// 	}
+	// }
+	// &_accent{
+	// 	@include button-static(palette('accent'), setColor('white'));
+	// 	box-shadow: 10px 10px 0px lighten(palette('accent'), 25%);
+	// 	&:hover{
+	// 		box-shadow: 5px 5px 0px lighten(palette('accent'), 25%);
+	// 	}
+	// }
+	// &_accent-secondary{
+	// 	@include button-static(palette('accent-secondary'), setColor('white'));
+	// 	box-shadow: 10px 10px 0px lighten(palette('accent-secondary'), 25%);
+	// 	&:hover{
+	// 		box-shadow: 5px 5px 0px lighten(palette('accent-secondary'), 25%);
+	// 	}
+	// }
+	@include btns-palette();
 
-  //-
-  //- Iteration button fluid color
-  //-
+	//-
+	//- Iteration button fluid color
+	//-
 
-  //@include button-static-iteration();
+	//@include button-static-iteration();
 
-  //-
-  //- Iteration button border-color
-  //-
-  @include button-border-iteration();
+	//-
+	//- Iteration button border-color
+	//-
+	@include button-border-iteration();
 }

@@ -1,0 +1,7 @@
+// Naming of general portfolio's class.
+$portfolio: 'portfolio';
+
+// Default transition for portfolio elements.
+%portfolio-transition{
+	@include transition();
+}

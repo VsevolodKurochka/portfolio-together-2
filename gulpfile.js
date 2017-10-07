@@ -8,8 +8,7 @@ var gulp 								= require('gulp'),
 		install 						= require('gulp-install'),
 		browserSync 				= require('browser-sync'),
 		pug 								= require('gulp-pug'),
-		rename							= require('gulp-rename'),
-		htmlbeautify 				= require('gulp-html-beautify'),		
+		rename							= require('gulp-rename'),	
 		notify 							= require('gulp-notify'),
 		sass 								= require('gulp-sass'),
 		sassGlob 						= require('gulp-sass-glob'),
@@ -72,12 +71,6 @@ gulp.task('pug', function() {
 		.pipe(gulp.dest(sourses.default));
 });
 
-gulp.task('htmlbeautify', function() {
-  gulp.src('app/*.html')
-    .pipe(htmlbeautify())
-    .pipe(gulp.dest('app/'))
-});
-
 gulp.task('babel', function(){
 	return gulp.src(sourses.es6)
 		.pipe(babel({
@@ -98,7 +91,7 @@ gulp.task('browser-sync', function(){
 	});
 });
 
-gulp.task('watch', ['browser-sync', 'pug', 'sass', 'babel', 'htmlbeautify'] ,function(){
+gulp.task('watch', ['browser-sync', 'pug', 'sass', 'babel'] ,function(){
 	gulp.watch(sourses.sass, ['sass']);
 	gulp.watch(sourses.html, browserSync.reload);
 	gulp.watch(sourses.js, browserSync.reload);

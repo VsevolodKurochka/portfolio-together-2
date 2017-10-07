@@ -38,18 +38,18 @@ html(lang="ru")
 		//+b.variety
 			+e.text
 				+e.P.title
-		+b.border
+		//+b.border
 			+e.item._top
 			+e.item._bottom
 			+e.item._left
 			+e.item._right
 		block nav
-			+b.fixed._bottom
+			//+b.fixed._bottom
 				+b.vnav._style
 					+e.container.vcontainer
 						+e.row.vrow.flex-y-center
 							.vak-7.vak-md-3
-								//+b.hamburger(type="button" id="js-vnav__btn")
+								+b.hamburger(type="button" id="js-vnav__btn")
 									+e.SPAN.lines
 										span
 										span
@@ -57,7 +57,7 @@ html(lang="ru")
 									+e.SPAN.text Menu
 								+e.logo
 									+e.A.logo-text(href="#") KitchenOfDesign
-							//+e.NAV.menu.vak-12.vak-md-6#navigation
+							+e.NAV.menu.vak-12.vak-md-6#navigation
 								ul
 									for item in navigation
 										+menu-item('true', item.link, item.name)

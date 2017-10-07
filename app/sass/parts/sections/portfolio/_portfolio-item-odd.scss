@@ -1,0 +1,69 @@
+.#{$portfolio}{
+	&__item{
+		$item-odd: &;
+		$item-odd-palette: palette('secondary');
+		&:nth-child(odd){
+			#{$item-odd}{
+				&-info{
+					&-title{
+						color: $item-odd-palette;
+					}
+					&-tag{
+						border-bottom-color: $item-odd-palette;
+					}
+					&-block{
+						&-body{
+							&-link{
+								color: $item-odd-palette;
+								border-color: $item-odd-palette;
+								&:before{
+									background-color: $item-odd-palette;
+								}
+								&:hover{
+									color: #fff;
+								}
+							}
+						}
+					}
+				}
+				@include resp-min(sm){
+					&-column{
+						&_image{
+							width: 450px;
+							height: 450px;
+							top: -45px;
+							right: 15px;
+							
+						}
+						&_info{
+							left: 30px;
+							top: 0;
+						}
+					}
+				}
+				@include resp-min(lg){
+					
+					&-column{
+						&_image{
+							right: 100px;
+						}
+						&_info{
+							left: 150px;
+						}
+					}
+				}
+			}
+			@include resp-min(sm){
+				&:before{
+					background-color: transparentize(palette('secondary'), 0.1);
+				}
+			}
+			@include resp-min(lg){
+				&:before{
+					left: 20%;
+					width: 90%;
+				}
+			}
+		}
+	}
+}

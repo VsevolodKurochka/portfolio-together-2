@@ -1,36 +1,38 @@
 .our-skills{
 	position: relative;
+	padding-top: 45px;
+	padding-bottom: 45px;
+	overflow: hidden;
 	z-index: 2;
-	&__title{
-		margin-bottom: 45px;
-	}
-	&__subtitle{
-		position: relative;
-		margin-bottom: 45px;
-		padding-bottom: 30px;
-		font-size: 45px;
-		line-height: 1;
-		color: palette('accent');
-		@extend .secondary-font;
-		&:before{
-			@include pseudo();
-			bottom: 0;
-			left: 0;
-			width: 75px;
-			height: 5px;
-			background-color: palette('accent');
+	//background-color: palette('secondary');
+	&__container{
+		&:not(:last-child){
+			margin-bottom: 45px;
 		}
 	}
-	&__column{
+	&__title{
 		margin-bottom: 45px;
+		color: palette('secondary');
+	}
+	&__subtitle{
+		font-size: 45px;
+		line-height: 1;
+		color: palette('secondary');
+		@extend .secondary-font;
+	}
+	&__column{
+		&:not(:last-child){
+			margin-bottom: 45px;
+		}
 	}
 	&__item{
 		$item: &;
+		$skill-default: palette('secondary');
 		$skills-colors: (
 			'js'			: #f0db4f,
 			'html'		: #f16524,
 			'css'			: #27a5e0,
-			'php'			: #777bb4,
+			'php'			: #239fc8,
 			'wp' 			: #1d8bbe,
 			'angular'	: #e62a39,
 			'ps'			: #00c8ff,
@@ -48,18 +50,26 @@
 				&-title{
 					color: $skill-color;
 				}
+				&-tech{
+					&:before{
+						border-color: $skill-color;
+
+					}
+				}
+				&-progress-inner,
 				&-tech,
 				&-progress{
 					background-color: $skill-color;
 				}
-				&-progress-inner,
 				&-progress-inner-percentage{
-					background-color: darken($skill-color, 15%);
+					color: $skill-color;
+					border-color: $skill-color;
 				}
 			}
 		}
-		&-header{
-			margin-bottom: 45px;
+		&-body{
+			padding-top: 45px;
+			overflow: hidden;
 		}
 		&-tech{
 			position: relative;
@@ -68,8 +78,32 @@
 			align-items: center;
 			width: 100px;
 			height: 100px;
+			z-index: 1;
 			//background-color: palette('primary');
 			@extend %skill-item-transition;
+			&:before,
+			&:after{
+				@include pseudo();
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				
+				@include transition();
+			}
+			&:before{
+				border-width: 2px;
+				border-style: solid;
+				z-index: -1;
+				transform: translate(15px, -15px);
+			}
+			&:after{
+				transform: scaleY(0);
+				background-color: $skill-default;
+				opacity: 0;
+				visibility: hidden;
+				z-index: -1;
+			}
 			&-title{
 				color: setColor('white');
 				font-size: 16px;
@@ -82,22 +116,33 @@
 				width: 100%;
 				padding: 5px 10px;
 				font-size: 13px;
-				background-color: palette('accent');
+				background-color: $skill-default;
 				color: #fff;
 			}
 			#{$item}:hover &{
-				background-color: palette('accent');
+				&:before,
+				&:after{
+					transform: none;
+				}
+				&:before{
+					border-color: $skill-default;
+				}
+				&:after{
+					opacity: 1;
+					visibility: visible;
+				}
 			}
 		}
 		&-title{
 			font-size: 20px;
 			@extend %skill-item-transition;
 			#{$item}:hover &{
-				color: palette('primary');
+				color: $skill-default;
 			}
 		}
 		&-description{
 			font-size: 15px;
+			color: setColor('white');
 		}
 		&-progress{
 			position: relative;
@@ -110,22 +155,49 @@
 				top: 0;
 				height: 100%;
 				@extend %skill-item-transition;
+				&:before{
+					@include pseudo();
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					opacity: 0;
+					transform: translateX(-100%);
+					transition: all ease 0.5s;
+				}
 				&-percentage{
 					position: absolute;
 					right: 0;
 					bottom: 0;
-					padding: 5px;
-					font-size: 13px;
-					color: setColor('white');
+					width: 50px;
+					height: 50px;
+					text-align: center;
+					line-height: 50px;
+					font-size: 14px;
+					border-bottom-width: 10px;
+					border-bottom-style: solid;
+					transition: all ease 0.5s 0.3s;
 					@extend .secondary-font;
 				}
 			}
 			#{$item}:hover &{
-				border-color: palette('accent');
+				border-color: $skill-default;
 				&-inner{
-					background-color: palette('accent');
+					&:before{
+						opacity: 1;
+						background-color: $skill-default;
+						transform: none;
+					}
+					&-percentage{
+						border-color: $skill-default;
+						color: $skill-default;
+					}
 				}
+				
 			}
+		}
+		@include resp-max(sm){
+
 		}
 		@include resp-min(sm){
 			&-header{
@@ -135,6 +207,9 @@
 			}
 			&-tech{
 				flex-basis: 100px;
+				&:before{
+					transform: translate(-15px, -15px);
+				}
 			}
 			&-information{
 				padding-left: 15px;
@@ -146,9 +221,15 @@
 			}
 		}
 	}
-	@include resp-min(sm){
-		&__container{
-			margin-bottom: 45px;
+	@include resp-max(sm){
+		
+		&__item{
+			&-information{
+				padding-top: 15px;
+			}
 		}
+	}
+	@include resp-min(sm){
+		
 	}
 }

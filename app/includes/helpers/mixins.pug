@@ -15,3 +15,42 @@ mixin menu-item(isLink,href, name)
 			a( href=href )=name
 		else
 			block
+mixin skill(name, fullname, description, percentage, technology)
+	+e.column.vak-12.vak-sm-6.vak-md-4
+		+e.item(class="_bg-" + technology)
+			+e.HEADER.item-header
+				+e.item-tech
+					+e.P.item-tech-title=name
+				+e.item-information
+					+e.P.item-title=fullname
+					+e.P.item-description=description
+			+e.SECTION.item-body
+				+e.item-progress
+					+e.item-progress-inner(style="width:" + percentage)
+						+e.item-progress-inner-percentage=percentage
+
+mixin project(image, title, about, date, link, tags)
+	+e.item.vrow
+		+e.item-column._image
+			+e.item-image(src=image)
+		+e.item-column._info
+			+e.item-info
+				+e.P.item-info-title=title
+				+e.item-info-content
+					+e.item-info-block
+						+e.P.item-info-block-title._about About
+						+e.item-info-block-body
+							p=about
+					+e.item-info-block
+						+e.P.item-info-block-title._date Project Date
+						+e.item-info-block-body
+							p=date
+					+e.item-info-block
+						+e.P.item-info-block-title._tag Tags
+						+e.item-info-block-body
+							+e.item-info-tags
+								for tag in tags
+									+e.SPAN.item-info-tag=tag
+					+e.item-info-block
+						+e.item-info-block-body
+							+e.A.item-info-block-body-link.effect._bounce-top(href=link) Visit website

@@ -1,0 +1,51 @@
+.#{$portfolio}{
+	&__description{
+		margin-bottom: 45px;
+		color: setColor('white');
+		&-title{
+			font-size: 60px;
+			color: palette('secondary');
+			line-height: 1;
+			@extend .secondary-font;
+		}
+		&-content{
+			width: 80%;
+			margin-top: -50px;
+			padding: 60px 15px;
+			background-color: palette('accent-secondary');
+			font-size: 15px;
+			&-title{
+				line-height: 1;
+				font-size: 45px;
+				// &:before{
+				// 	@include pseudo();
+				// 	left: 0;
+				// 	bottom: 0;
+				// 	width: 100px;
+				// 	height: 3px;
+				// 	background-color: palette('secondary');
+				// }
+			}
+		}
+		@include resp-min(sm){
+			margin-bottom: 100px;
+			&-title{
+				font-size: 120px;
+			}
+			&-content{
+				margin-left: auto;
+				margin-top: -100px;
+				padding: 100px 45px 30px 45px;
+			}
+		}
+		@include resp-min(md){
+			&-title{
+				font-size: 150px;
+			}
+			&-content{
+				width: 70%;
+				padding: 120px 90px 30px 90px;
+			}
+		}
+	}
+}

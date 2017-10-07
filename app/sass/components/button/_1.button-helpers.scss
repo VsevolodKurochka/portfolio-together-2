@@ -6,6 +6,20 @@ $button-map: (
   'line-height' : 1.3
 );
 
+$button-palette: 'primary', 'secondary', 'accent', 'accent-secondary';
+@mixin btns-palette(){
+  @each $name, $color in $button-palette{
+    &_#{$name}{
+      @include button-static(palette($name), setColor('white'));
+      &-shadow{
+        box-shadow: 10px 10px 0px lighten(palette($name), 15%);
+        &:hover{
+          box-shadow: 5px 5px 0px lighten(palette($name), 15%);
+        }
+      }
+    }
+  }
+}
 //-
 //- Buttons variant
 //-
@@ -22,6 +36,7 @@ $button-map: (
 $button-border: (
 	'brand-1'			: ( setColor('brand-1'), setColor('dark', 'black') )
 );
+
 
 // Button default
 $btn-default-padding: 10px 16px;

@@ -1,0 +1,27 @@
+.invite{
+	position: relative;
+	z-index: 1;
+	padding-top: 45px;
+	padding-bottom: 45px;
+	color: setColor('white');
+	@include bg('../img/programming.jpg');
+	@media only screen and (min-width: getComp('lg', $breakpoints)){
+		background-attachment: fixed;
+	}
+	&:before{
+		@include pseudo();
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: transparentize(#000, 0.4);
+		z-index: -1;
+	}
+	&__title{
+		
+	}
+	@include resp-min(md){
+		padding-top: 90px;
+		padding-bottom: 90px;
+	}
+}

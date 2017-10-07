@@ -19,15 +19,25 @@
 		span{
 			line-height: 1;
 			display: inline-block;
+
 			> span{
 				transform: none;
 				animation: titleLetterMove 7s linear 0s infinite;
 			}
 		}
 		@at-root{
-			@keyframes titleLetterMove {
-				50%{
-					transform: translate(15px, -15px);
+			@include resp-max(sm){
+				@keyframes titleLetterMove {
+					50%{
+						transform: translate(7.5px, -7.5px);
+					}
+				}
+			}
+			@include resp-min(sm){
+				@keyframes titleLetterMove {
+					50%{
+						transform: translate(15px, -15px);
+					}
 				}
 			}
 		}
@@ -35,7 +45,7 @@
 			> span:nth-child(#{$i}){
 				transform: translate3d(0, ((random(10) - 5)* $i + px) , 0);
 				span{
-					animation-delay: ($i / 5) + s;
+					animation-delay: ($i / random(5)) + s;
 				}
 			}
 		}
@@ -50,71 +60,50 @@
 		font-size: 30px;
 		@include fs('vtitle-big');
 		@extend .black !optional;
-		//@extend %vtitle-default;
-		&__line{
-			display: block;
-			&_2{
-				padding-left: 50px;
-			}
-		}
-		&__first-letter{
-			font-size: 140%;
-			display: inline-block;
-		}
-		@include resp-min(sm){
-			&__line{
-				&_2{
-					padding-left: 100px;
-				}
-			}
+	}
+	&-general{
+		@include fs('vtitle-general');
+		&-small{
+			@include fs('vtitle-general-small');
 		}
 	}
 }
-.group{
-	&__title{
-		display: inline-block;
-		background-color: palette('primary');
-		padding: 30px 60px;
-		color: #fff;
-		text-transform: uppercase;
-		font-size: 40px;
-		font-family: 'Archivo Black', serif;
+
+.underline{
+	$parent: &;
+	position: relative;
+	padding-bottom: 30px;
+	margin-bottom: 45px;
+	&:before{
+		@include pseudo();
+		bottom: 0;
+		@include size(75px, 5px);
 	}
-	@include resp-min(sm){
-		position: absolute;
-		&.left{
+	&_left{
+		&:before{
 			left: 0;
 		}
-		&.top{
-			top: 30px;
-		}
-		&.left.top{
-			transform: rotate(-90deg);
-			transform-origin: 35% bottom;
+	}
+	&_center{
+		&:before{
+			left: 50%;
+			transform: translateX(-50%);
 		}
 	}
-	@include resp-min(md){
-		&__title{
-			font-size: 60px;
+	&_bg{
+		&-primary{
+			&:before{
+				background-color: palette('primary');
+			}
 		}
-		&.top{
-			top: 60px;
+		&-secondary{
+			&:before{
+				background-color: palette('secondary');
+			}
 		}
-	}
-}
-.text-gradient{
-	&_primary{
-		> span:first-child,
-		> span:last-child{
-			span{
-				position: relative;
-				color: transparent;
-				-webkit-background-clip: text;
-				background-clip: text;
-				//background-image: linear-gradient(to right, #009CF3, #16D6D9);
-				@include theme('light'){
-					background-image: linear-gradient(to right, palette('primary'), lighten( palette('primary'), 25% ) );
-				}
+		&-white{
+			&:before{
+				background-color: setColor('white');
 			}
 		}
 	}

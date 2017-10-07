@@ -1,0 +1,39 @@
+.#{$portfolio}{
+	&__container{
+		position: relative;
+		padding-top: 45px;
+		padding-bottom: 45px;
+		z-index: 1;
+		&:before{
+			@include pseudo();
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: lighten(palette('accent-secondary'), 5%);
+			z-index: -1;
+		}
+		@include resp-min(xs){
+			&:before{
+				left: 50%;
+				width: 80%;
+				transform: translateX(-50%);
+			}
+		}
+		@include resp-min(sm){
+			padding-bottom: 60px;
+			padding-bottom: 60px;
+			&:before{
+				width: 600px;
+
+			}
+		}
+		@include resp-min(md){
+			padding-top: 90px;
+			padding-bottom: 90px;
+			&:before{
+				width: 800px;
+			}
+		}
+	}
+}

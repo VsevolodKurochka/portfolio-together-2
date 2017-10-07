@@ -1,0 +1,63 @@
+.#{$portfolio}{
+	&__item{
+		$item-even: &;
+		$item-even-palette: palette('primary');
+		&:nth-child(even){
+			@include resp-min(sm){
+				padding-top: 30px;
+				&:before{
+					left: -10%;
+					background-color: transparentize(palette('primary'), 0.1);
+				}
+			}
+			#{$item-even}{
+				&-info{
+					&-title{
+						color: $item-even-palette;
+					}
+					&-tag{
+						border-bottom-color: $item-even-palette;
+					}
+					&-block{
+						&-body{
+							&-link{
+								color: $item-even-palette;
+								border-color: $item-even-palette;
+								&:before{
+									background-color: $item-even-palette;
+								}
+								&:hover{
+									color: #fff;
+								}
+							}
+						}
+					}
+				}
+				@include resp-min(sm){
+					&-column{
+						&_image{
+							width: 80%;
+							height: 400px;
+							top: 0;
+							left: 0;
+						}
+						&_info{
+							left: 45px;
+							bottom: -45px;
+						}
+					}
+				}
+				@include resp-min(lg){
+					&-column{
+						&_image{
+							right: 100px;
+						}
+						&_info{
+							bottom: -100px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

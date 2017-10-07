@@ -45,7 +45,8 @@ $colors: (
 );
 
 $scheme-light: (
-	'primary' 						: #F0AE2C,
+	// e4c480
+	'primary' 						: #ffb900,
 	'accent' 							: #0d19a3,
 	'accent-secondary' 		: #08105b,
 	'secondary'						: #16db94,
@@ -65,7 +66,7 @@ $scheme-dark: (
 /// Sizes for elements.
 $sizes: (
 	'vtitle-big': (
-		xs:   30px,
+		xs:   40px,
 		sm:   60px,
 		md:   80px,
 		lg:   100px
@@ -78,6 +79,14 @@ $sizes: (
 	'vtitle-small': (
 		sm:   30px,
 		md: 	40px
+	),
+	'vtitle-general': (
+		sm: 	40px,
+		md:   50px,
+		lg:   60px
+	),
+	'vtitle-general-small': (
+		sm: 	30px
 	)
 );
 
