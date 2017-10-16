@@ -1,7 +1,7 @@
 $button-map: (
   'name'        : 'vbtn',
   'z-index'     : z('default'),
-  'radius'      : 0,
+  'radius'      : 50px,
   'border'      : 0 ,
   'line-height' : 1.3
 );
@@ -11,12 +11,12 @@ $button-palette: 'primary', 'secondary', 'accent', 'accent-secondary';
   @each $name, $color in $button-palette{
     &_#{$name}{
       @include button-static(palette($name), setColor('white'));
-      &-shadow{
-        box-shadow: 10px 10px 0px lighten(palette($name), 15%);
-        &:hover{
-          box-shadow: 5px 5px 0px lighten(palette($name), 15%);
-        }
-      }
+      // &-shadow{
+      //   box-shadow: 10px 10px 0px lighten(palette($name), 15%);
+      //   &:hover{
+      //     box-shadow: 5px 5px 0px lighten(palette($name), 15%);
+      //   }
+      // }
     }
   }
 }

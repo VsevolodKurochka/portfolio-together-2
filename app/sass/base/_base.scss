@@ -2,7 +2,7 @@ body{
   color: setColor('dark', 'black');  
   font-size: 18px;
   line-height: 1.42857143;
-  background-color: palette('accent');
+  //background-color: palette('accent');
   @extend .general-font !optional;
   @extend .regular !optional;
 }
